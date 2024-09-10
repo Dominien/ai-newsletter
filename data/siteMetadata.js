@@ -7,7 +7,7 @@ const siteMetadata = {
   language: 'de-DE', // Set to German
   theme: 'system', // system, dark, or light
   siteUrl: 'https://ki-agenda.com',
-  siteRepo: 'https://github.com/Dominien',
+  siteRepo: 'https://github.com/Dominien/ai-newsletter',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/ki-agenda-banner.png`,
   mastodon: '',
