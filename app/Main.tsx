@@ -3,6 +3,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import Image from 'next/image'
 
 const MAX_DISPLAY = 5
 
@@ -38,10 +39,13 @@ export default function Home({ posts }) {
                         {featuredImage && (
                           <div className="mb-4">
                             <Link href={`/blog/${slug}`}>
-                              <img
+                              <Image
                                 src={featuredImage}
-                                alt={`Featured image for ${title}`}
-                                className="w-full h-auto object-cover rounded-lg"
+                                alt={title}  {/* Avoid redundant words */}
+                                className="h-auto w-full rounded-lg object-cover"
+                                width={1200}  {/* Set appropriate width */}
+                                height={600}  {/* Set appropriate height */}
+                                priority  {/* Use priority for important images */}
                               />
                             </Link>
                           </div>
