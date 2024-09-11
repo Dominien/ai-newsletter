@@ -28,27 +28,21 @@ export default function Home({ posts }) {
             return (
               <li key={slug} className="py-12">
                 <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                      <dt className="sr-only">Veröffentlicht am</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                      </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
+                  <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 items-baseline">
+                    <div className="xl:col-span-1 mb-4">
+                      <Link href={`/blog/${slug}`}>
+                        <Image
+                          src={imageSrc}
+                          alt={`Featured image for ${title}`}
+                          className="h-auto w-full rounded-lg object-cover"
+                          width={400}  // Image width
+                          height={300}  // Image height
+                          priority
+                        />
+                      </Link>
+                    </div>
+                    <div className="xl:col-span-3">
                       <div className="space-y-6">
-                        <div className="mb-4">
-                          <Link href={`/blog/${slug}`}>
-                            <Image
-                              src={imageSrc}
-                              alt={`Featured image for ${title}`}
-                              className="h-auto w-full rounded-lg object-cover"
-                              width={1200}
-                              height={600}
-                              priority
-                            />
-                          </Link>
-                        </div>
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
