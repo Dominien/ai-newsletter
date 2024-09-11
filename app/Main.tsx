@@ -22,7 +22,9 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'Keine Beiträge gefunden.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags, featuredImage } = post
+            const { slug, date, title, summary, tags, images } = post
+            const featuredImage = images?.[0] || '/default-image.jpg'  // Use first image or a default image
+
             return (
               <li key={slug} className="py-12">
                 <article>
