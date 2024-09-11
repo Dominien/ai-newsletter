@@ -21,7 +21,7 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'Keine Beiträge gefunden.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+            const { slug, date, title, summary, tags, featuredImage } = post
             return (
               <li key={slug} className="py-12">
                 <article>
@@ -34,6 +34,18 @@ export default function Home({ posts }) {
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
+                        {/* Featured Image */}
+                        {featuredImage && (
+                          <div className="mb-4">
+                            <Link href={`/blog/${slug}`}>
+                              <img
+                                src={featuredImage}
+                                alt={`Featured image for ${title}`}
+                                className="w-full h-auto object-cover rounded-lg"
+                              />
+                            </Link>
+                          </div>
+                        )}
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
