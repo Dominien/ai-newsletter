@@ -3,7 +3,8 @@ const siteMetadata = {
   title: 'KI-Agenda – Ihre Quelle für Künstliche Intelligenz Nachrichten',
   author: 'Marco Patzelt',
   headerTitle: 'KI-Agenda',
-  description: 'Bleiben Sie auf dem Laufenden mit den neuesten Nachrichten, Trends und Entwicklungen in der Künstlichen Intelligenz.',
+  description:
+    'Bleiben Sie auf dem Laufenden mit den neuesten Nachrichten, Trends und Entwicklungen in der Künstlichen Intelligenz.',
   language: 'de-DE', // Set to German
   theme: 'system', // system, dark, or light
   siteUrl: 'https://ki-agenda.com',
@@ -13,10 +14,10 @@ const siteMetadata = {
   mastodon: '',
   email: 'marco@ki-agenda.com',
   github: 'https://github.com/Dominien',
-  x: 'https://twitter.com/x',  // You can update this with your personal Twitter handle or replace with Mastodon/LinkedIn
+  x: 'https://twitter.com/x', // You can update this with your personal Twitter handle or replace with Mastodon/LinkedIn
   facebook: '',
   youtube: '',
-  linkedin: 'https://www.linkedin.com/in/marco-patzelt-2574b1257',  // Updated with your LinkedIn profile
+  linkedin: 'https://www.linkedin.com/in/marco-patzelt-2574b1257', // Updated with your LinkedIn profile
   threads: '',
   instagram: '',
   locale: 'de-DE',
@@ -28,7 +29,7 @@ const siteMetadata = {
     },
   },
   newsletter: {
-    provider: 'buttondown',  // Set up your Buttondown account for newsletters
+    provider: 'buttondown', // Set up your Buttondown account for newsletters
   },
   comments: {
     provider: 'giscus',
@@ -47,7 +48,7 @@ const siteMetadata = {
     },
   },
   search: {
-    provider: 'kbar', 
+    provider: 'kbar',
     kbarConfig: {
       searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`,
     },

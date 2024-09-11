@@ -28,15 +28,15 @@ export default function Home({ posts }) {
             return (
               <li key={slug} className="py-12">
                 <article>
-                  <div className="items-baseline gap-4 xl:grid-cols-4 grid grid-cols-1">
+                  <div className="grid grid-cols-1 items-baseline gap-4 xl:grid-cols-4">
                     <div className="mb-4 xl:col-span-1">
                       <Link href={`/blog/${slug}`}>
                         <Image
                           src={imageSrc}
                           alt={`Featured image for ${title}`}
                           className="h-auto w-full rounded-lg object-cover"
-                          width={400}  // Image width
-                          height={300}  // Image height
+                          width={400} // Image width
+                          height={300} // Image height
                           priority
                         />
                       </Link>
