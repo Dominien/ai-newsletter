@@ -3,11 +3,10 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
-import Image from 'next/image'
 
 const MAX_DISPLAY = 5
 
-export default function Home({ posts }) {
+export default function Home({ posts = [] }) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -21,9 +20,9 @@ export default function Home({ posts }) {
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'Keine Beiträge gefunden.'}
-          {posts.slice(0, MAX_DISPLAY).map((post) => {
+          {Array.isArray(posts) && posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags, images } = post
-            const featuredImage = images?.[0] || '/default-image.jpg'  // Use first image or a default image
+            const featuredImage = images?.[0] || '/default-image.jpg'  // Use first image or default
 
             return (
               <li key={slug} className="py-12">
@@ -37,17 +36,16 @@ export default function Home({ posts }) {
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
-                        {/* Featured Image */}
                         {featuredImage && (
                           <div className="mb-4">
                             <Link href={`/blog/${slug}`}>
                               <Image
                                 src={featuredImage}
-                                alt={title}  {/* Avoid redundant words */}
+                                alt={title} 
                                 className="h-auto w-full rounded-lg object-cover"
-                                width={1200}  {/* Set appropriate width */}
-                                height={600}  {/* Set appropriate height */}
-                                priority  {/* Use priority for important images */}
+                                width={1200}
+                                height={600}
+                                priority
                               />
                             </Link>
                           </div>
