@@ -3,11 +3,11 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
-import Image from 'next/image'  // Using next/image for optimized images
+import Image from 'next/image'  // Assuming you're using next/image for image optimization
 
 const MAX_DISPLAY = 5
 
-export default function Home({ posts = [] }) {
+export default function Home({ posts }) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -22,8 +22,8 @@ export default function Home({ posts = [] }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'Keine Beiträge gefunden.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags, images } = post
-            const featuredImage = images?.[0] || '/static/images/time-machine.jpg'  // Use time-machine.jpg if no image is provided
+            const { slug, date, title, summary, tags, featuredImage } = post  // Assuming 'featuredImage' is in your post data
+            const imageSrc = featuredImage || '/static/images/time-machine.jpg'  // Fallback to shitty image if no featured image
 
             return (
               <li key={slug} className="py-12">
@@ -37,21 +37,21 @@ export default function Home({ posts = [] }) {
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
-                        {featuredImage && (
-                          <div className="mb-4">
-                            <Link href={`/blog/${slug}`}>
-                              <Image
-                                src={featuredImage}   // Path to the image from MDX frontmatter
-                                alt={title}           // Descriptive alt text for accessibility
-                                layout="responsive"   // Makes the image responsive
-                                width={1200}          // Width used for responsive layout
-                                height={600}          // Height used for responsive layout
-                                className="rounded-lg object-cover"  // Styling for the image
-                                priority              // Load priority as it's a featured image
-                              />
-                            </Link>
-                          </div>
-                        )}
+                        {/* Image Section */}
+                        <div className="mb-4">
+                          <Link href={`/blog/${slug}`}>
+                            <Image
+                              src={imageSrc}  // This will be either the featured image or fallback
+                              alt={`Featured image for ${title}`}  // Accessible alt text
+                              className="w-full h-auto object-cover rounded-lg"  // Styling the image
+                              width={1200}    // Specify image width
+                              height={600}    // Specify image height
+                              priority        // Use priority for important images
+                            />
+                          </Link>
+                        </div>
+
+                        {/* Title and Tags */}
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
@@ -67,10 +67,14 @@ export default function Home({ posts = [] }) {
                             ))}
                           </div>
                         </div>
+
+                        {/* Summary */}
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
                       </div>
+
+                      {/* Read More Link */}
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
@@ -88,6 +92,8 @@ export default function Home({ posts = [] }) {
           })}
         </ul>
       </div>
+
+      {/* Pagination / Newsletter Section */}
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
