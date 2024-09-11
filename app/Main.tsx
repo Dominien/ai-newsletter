@@ -3,6 +3,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import Image from 'next/image'  // Using next/image for optimized images
 
 const MAX_DISPLAY = 5
 
@@ -20,9 +21,9 @@ export default function Home({ posts = [] }) {
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'Keine Beiträge gefunden.'}
-          {Array.isArray(posts) && posts.slice(0, MAX_DISPLAY).map((post) => {
+          {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags, images } = post
-            const featuredImage = images?.[0] || '/default-image.jpg'  // Use first image or default
+            const featuredImage = images?.[0] || '/static/images/time-machine.jpg'  // Use time-machine.jpg if no image is provided
 
             return (
               <li key={slug} className="py-12">
@@ -40,12 +41,13 @@ export default function Home({ posts = [] }) {
                           <div className="mb-4">
                             <Link href={`/blog/${slug}`}>
                               <Image
-                                src={featuredImage}
-                                alt={title} 
-                                className="h-auto w-full rounded-lg object-cover"
-                                width={1200}
-                                height={600}
-                                priority
+                                src={featuredImage}   // Path to the image from MDX frontmatter
+                                alt={title}           // Descriptive alt text for accessibility
+                                layout="responsive"   // Makes the image responsive
+                                width={1200}          // Width used for responsive layout
+                                height={600}          // Height used for responsive layout
+                                className="rounded-lg object-cover"  // Styling for the image
+                                priority              // Load priority as it's a featured image
                               />
                             </Link>
                           </div>
