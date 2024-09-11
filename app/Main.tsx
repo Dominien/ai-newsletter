@@ -27,50 +27,51 @@ export default function Home({ posts }) {
 
             return (
               <li key={slug} className="py-12">
-                <article>
-                  <div className="grid grid-cols-1 items-baseline gap-4 xl:grid-cols-4">
-                    <div className="mb-4 xl:col-span-1">
-                      <Link href={`/blog/${slug}`}>
-                        <Image
-                          src={imageSrc}
-                          alt={`Featured image for ${title}`}
-                          className="h-auto w-full rounded-lg object-cover"
-                          width={400} // Image width
-                          height={300} // Image height
-                          priority
-                        />
-                      </Link>
+                <article className="flex items-start space-x-6">
+                  {' '}
+                  {/* Flexbox to align in one line */}
+                  <div className="w-1/4 flex-shrink-0">
+                    {' '}
+                    {/* Make the image smaller */}
+                    <Link href={`/blog/${slug}`}>
+                      <Image
+                        src={imageSrc}
+                        alt={`Featured image for ${title}`}
+                        className="h-auto w-full rounded-lg object-cover"
+                        width={300} // Adjust size of image if needed
+                        height={200} // Adjust size of image if needed
+                        priority
+                      />
+                    </Link>
+                  </div>
+                  <div className="w-3/4">
+                    {' '}
+                    {/* Content takes up more space */}
+                    <div className="space-y-6">
+                      <div>
+                        <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                          <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
+                            {title}
+                          </Link>
+                        </h2>
+                        <div className="flex flex-wrap">
+                          {tags.map((tag) => (
+                            <Tag key={tag} text={tag} />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                        {summary}
+                      </div>
                     </div>
-                    <div className="xl:col-span-3">
-                      <div className="space-y-6">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-gray-900 dark:text-gray-100"
-                            >
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
-                        </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
-                        </div>
-                      </div>
-                      <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Mehr lesen: "${title}"`}
-                        >
-                          Mehr lesen &rarr;
-                        </Link>
-                      </div>
+                    <div className="text-base font-medium leading-6">
+                      <Link
+                        href={`/blog/${slug}`}
+                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        aria-label={`Mehr lesen: "${title}"`}
+                      >
+                        Mehr lesen &rarr;
+                      </Link>
                     </div>
                   </div>
                 </article>
