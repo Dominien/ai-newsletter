@@ -28,8 +28,8 @@ export default function Home({ posts }) {
             return (
               <li key={slug} className="py-12">
                 <article>
-                  <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 items-baseline">
-                    <div className="xl:col-span-1 mb-4">
+                  <div className="items-baseline gap-4 xl:grid-cols-4 grid grid-cols-1">
+                    <div className="mb-4 xl:col-span-1">
                       <Link href={`/blog/${slug}`}>
                         <Image
                           src={imageSrc}
