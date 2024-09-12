@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'KI-Agenda – Ihre Quelle für Künstliche Intelligenz Nachrichten',
+  title: 'KI-Agenda',
   author: 'Marco Patzelt',
   headerTitle: 'KI-Agenda',
   description:
