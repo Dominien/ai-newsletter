@@ -1,7 +1,6 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import Image from 'next/image'
 
@@ -22,8 +21,10 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'Keine Beiträge gefunden.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags, featuredImage } = post
-            const imageSrc = featuredImage || '/static/images/time-machine.jpg'
+            const { slug, date, title, summary, tags, images } = post
+            // Use the first image in the images array or a fallback image
+            const featuredImage =
+              images && images.length > 0 ? images[0] : '/static/images/time-machine.jpg'
 
             return (
               <li key={slug} className="py-12">
@@ -31,11 +32,11 @@ export default function Home({ posts }) {
                   <div className="w-full flex-shrink-0 md:w-1/4">
                     <Link href={`/blog/${slug}`}>
                       <Image
-                        src={imageSrc}
-                        alt={`Featured image for ${title}`}
+                        src={featuredImage} // Path to the featured image
+                        alt={`Featured image for ${title}`} // Alt text for the image
                         className="h-auto w-full rounded-lg object-cover"
-                        width={300} // Adjust size of image if needed
-                        height={200} // Adjust size of image if needed
+                        width={300} // Width of the image
+                        height={200} // Height of the image
                         priority
                       />
                     </Link>
