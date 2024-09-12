@@ -23,7 +23,7 @@ export default function Footer() {
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
           <Link href="/">KI-Agenda</Link>
-          </div>
+        </div>
       </div>
     </footer>
   )
