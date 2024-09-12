@@ -27,12 +27,8 @@ export default function Home({ posts }) {
 
             return (
               <li key={slug} className="py-12">
-                <article className="flex items-start space-x-6">
-                  {' '}
-                  {/* Flexbox to align in one line */}
-                  <div className="w-1/4 flex-shrink-0">
-                    {' '}
-                    {/* Make the image smaller */}
+                <article className="flex flex-col items-start space-y-6 md:flex-row md:space-x-6 md:space-y-0">
+                  <div className="w-full flex-shrink-0 md:w-1/4">
                     <Link href={`/blog/${slug}`}>
                       <Image
                         src={imageSrc}
@@ -44,9 +40,7 @@ export default function Home({ posts }) {
                       />
                     </Link>
                   </div>
-                  <div className="w-3/4">
-                    {' '}
-                    {/* Content takes up more space */}
+                  <div className="w-full md:w-3/4">
                     <div className="space-y-6">
                       <div>
                         <h2 className="text-2xl font-bold leading-8 tracking-tight">
