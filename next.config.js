@@ -77,10 +77,10 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'picsum.photos',
         },
-        // Add more domains if necessary
+        // Add more external domains if necessary
       ],
-      // This enables support for WebP, AVIF, and default image formats like PNG, JPEG
-      formats: ['image/avif', 'image/webp', 'image/png', 'image/jpeg'],
+      // Only specify the supported formats: 'image/avif' and 'image/webp'
+      formats: ['image/avif', 'image/webp'],
       unoptimized, // Keep this if you do not want to optimize images
     },
 
