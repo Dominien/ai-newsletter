@@ -1,0 +1,274 @@
+---
+title: 'Einführung in OpenAI Structured Outputs: Ein Leitfaden'
+date: '2024-09-30'
+tags: ['KI', 'SEO', 'Generative AI', 'Tutorial', 'Automatisierung', 'AI']
+draft: false
+images: ['/static/images/Einführung_in_OpenAI_Structured_Outputs_Ein_Leitfaden_1727729005_main.png']
+summary: '"OpenAI Structured Outputs: Ein Leitfaden" bietet Einblicke in die Nutzung und Anwendung von OpenAI für strukturierte Daten.'
+---
+
+## Einführung
+
+OpenAI hat im August 2024 eine neue, leistungsstarke Funktion in ihrer API angekündigt - die Strukturierten Ausgaben (Structured Outputs). Diese Funktion ermöglicht es, sicherzustellen, dass Sprachlernmodelle (LLMs) nur in dem von Ihnen bestimmten Format antworten.
+
+Es wird deutlich einfacher, Anwendungen zu erstellen, die eine präzise Datenformatierung erfordern. In diesem Tutorial lernen Sie, wie Sie mit den strukturierten Ausgaben von OpenAI beginnen, die neue Syntax verstehen und ihre Schlüsselanwendungen erkunden können.
+
+Strukturierte Ausgaben sind besonders wichtig für Aufgaben wie die Dateneingabe, die Informationsabfrage, die Beantwortung von Fragen, mehrstufige Arbeitsabläufe usw. Mit den strukturierten Ausgaben können wir dieses Problem beheben, da sie eine erhebliche Zeitersparnis bieten und die Abhängigkeit von anderen Open-Source-Tools reduzieren.
+
+Dieses Tutorial wird Ihnen zeigen, wie Sie die strukturierten Ausgaben für Ihre Anwendungen effektiv nutzen können.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Einführung](/static/images/Einführung_1727728175_16-9.png)
+</div>
+
+### Überblick über das Thema und seine Bedeutung
+
+OpenAI Structured Outputs ist ein leistungsstarkes Feature, das im August 2024 eingeführt wurde. Mit dieser Funktion können Sie sicherstellen, dass die von Ihnen erstellten Language Models (LLMs) Antworten nur im von Ihnen festgelegten Format generieren.
+
+Dies erleichtert den Aufbau von Anwendungen, die eine präzise Datenformatierung erfordern, erheblich. Strukturierte Ausgaben sind für viele Aufgaben unerlässlich, wie z.B.
+
+Dateneingabe, Informationsabruf, Frage-Antwort-Szenarien, mehrstufige Workflows und vieles mehr. Mit der neuen Funktion 'classify_sentiment_with_structured_outputs' sind alle Antworten in demselben Format.
+
+Diese Fähigkeit, Sprachmodelle in ein starres Format zu zwingen, ist von großer Bedeutung und erspart Ihnen unzählige Stunden der Aufforderung zur Technik oder der Abhängigkeit von anderen Open-Source-Tools. Mit Pydantic-Modellen können Sie die erwartete Ausgabestruktur definieren.
+
+Diese Modelle können dann verwendet werden, um die Struktur der von den OpenAI-Modellen generierten Ausgaben zu erzwingen. Außerdem können Sie mit Pydantic-Modellen komplexe Schemata definieren, die hierarchische Daten verarbeiten und spezifische Strukturen für komplexe Ausgaben erzwingen.
+
+Strukturierte Ausgaben können auch in Kombination mit Funktionsaufrufen verwendet werden, um die Definition von Funktionsparametern und erwarteten Ausgaben zu vereinfachen. Bei der Verwendung von strukturierten Ausgaben gibt es eine Reihe von bewährten Methoden und Empfehlungen, die Sie beachten sollten, um die effektivste Nutzung von strukturierten Ausgaben in Ihren Anwendungen zu erzielen.
+### Ziele des Tutorials
+
+In diesem Leitfaden werden wir uns eingehend mit OpenAI Structured Outputs befassen. Structured Outputs ist ein mächtiges neues Feature, das OpenAI in ihre API eingeführt hat.
+
+Wie der Name schon suggeriert, ermöglicht es Ihnen, die Formate zu bestimmen, in denen die Sprachmodelle Antworten generieren. Diese Funktion spart erheblich Zeit und Mühe, die ansonsten für die Formatierung der Daten aufgewendet werden müsste.
+
+Dieses Tutorial wird Ihnen helfen, den neuen Syntax von Structured Outputs zu verstehen und seine Schlüsselanwendungen zu erkunden. Sie werden auch lernen, wie Sie diese Funktion in Kombination mit der Funktion Calling verwenden können.
+
+Wir werden ebenfalls die Best Practices hervorheben, die Sie berücksichtigen sollten, um das Beste aus dieser Funktion herauszuholen. Am Ende dieses Tutorials werden Sie in der Lage sein, Anwendungen zu erstellen, die präzise datenformatierte Antworten erfordern, mit viel größerer Leichtigkeit und Effizienz.
+## Voraussetzungen
+
+Dieser Abschnitt konzentriert sich auf die Voraussetzungen, um OpenAI Strukturierte Ausgaben zu verwenden. Bevor Sie beginnen, müssen Sie sicherstellen, dass Sie über die notwendige Software verfügen und die erforderlichen Schritte zur Einrichtung Ihrer Umgebung durchgeführt haben.
+
+Dazu gehört die Installation des OpenAI Python-Pakets und der Pydantic-Bibliothek, die für die Definition und Validierung von JSON-Schemata für Strukturierte Ausgaben verwendet wird. Sie müssen auch Ihren API-Schlüssel einrichten, den Sie als Umgebungsvariable oder direkt in Ihrem Code festlegen können.
+
+Nachdem Sie Ihre Umgebung eingerichtet haben, können Sie die OpenAI Strukturierte Ausgaben-Funktion effektiv nutzen. Es ist wichtig zu beachten, dass der korrekte Umgang mit Strukturierten Ausgaben sorgfältige Schema-Design erfordert, um die Balance zwischen Struktur und dem gewünschten Detailgrad in den Ausgaben zu wahren.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Voraussetzungen](/static/images/Voraussetzungen_1727728277_16-9.png)
+</div>
+
+### Erforderliches Wissen oder Fähigkeiten
+
+Um die strukturierten Ausgaben von OpenAI effektiv zu nutzen, sind bestimmte Kenntnisse und Fähigkeiten erforderlich. Zuallererst sollte man mit der Programmiersprache Python vertraut sein, da die OpenAI API in Python geschrieben ist.
+
+Darüber hinaus ist es hilfreich, ein grundlegendes Verständnis für KI und maschinelles Lernen zu haben, insbesondere für Sprachmodelle wie GPT-4o. Es ist auch wichtig, mit dem Konzept der strukturierten Daten vertraut zu sein und zu wissen, wie man sie effektiv nutzt.
+
+Kenntnisse in der Datenvalidierung und im Umgang mit JSON-Schemata sind ebenfalls unerlässlich, vor allem wenn man mit der Pydantic-Bibliothek arbeitet, die für die Definition und Validierung von JSON-Schemata in strukturierten Ausgaben verwendet wird. Schließlich sind Kenntnisse in SEO-Optimierung von Vorteil, um die von der API generierten Inhalte für Suchmaschinen zu optimieren.
+### Notwendige Tools oder Softwareinstallationen
+
+Um mit OpenAI Structured Outputs arbeiten zu können, benötigen Sie bestimmte Tools und Softwareinstallationen. Zunächst sollten Sie sicherstellen, dass Sie die OpenAI Python-Bibliothek auf Ihrem Gerät installiert haben.
+
+Dies ist das grundlegende Tool, das Sie benötigen, um mit den APIs von OpenAI zu interagieren. Die Installation erfolgt einfach über den Terminal mit dem Befehl 'pip install openai'.
+
+Darüber hinaus benötigen Sie einen API-Schlüssel, den Sie von der OpenAI-Website erhalten können. Dieser Schlüssel ermöglicht es Ihnen, auf die APIs zuzugreifen und Anfragen zu senden.
+
+Sie können den Schlüssel als Umgebungsvariable einrichten oder direkt in Ihrem Code einfügen. Neben der OpenAI-Bibliothek benötigen Sie auch die Pydantic-Bibliothek.
+
+Diese Bibliothek wird benötigt, um JSON-Schemata für Structured Outputs zu definieren und zu validieren. Sie können es mit dem Befehl 'pip install pydantic' installieren.
+
+Sobald Sie diese Tools und Softwareinstallationen eingerichtet haben, sind Sie bereit, mit OpenAI Structured Outputs zu arbeiten.
+## Erste Schritte
+
+Im August 2024 kündigte OpenAI eine leistungsstarke neue Funktion in ihrer API an - Strukturierte Ausgaben. Mit dieser Funktion können Sie, wie der Name schon sagt, sicherstellen, dass LLMs nur in dem von Ihnen angegebenen Format Antworten generieren.
+
+Diese Fähigkeit erleichtert es erheblich, Anwendungen zu erstellen, die eine präzise Datenformatierung erfordern. In diesem Tutorial lernen Sie, wie Sie mit den strukturierten Ausgaben von OpenAI beginnen, die neue Syntax verstehen und ihre Schlüsselanwendungen erkunden.
+
+Die deterministischen Antworten oder, mit anderen Worten, Antworten im konsistenten Format, sind für viele Aufgaben wie Dateneingabe, Informationsabruf, Fragebeantwortung, mehrstufige Workflows usw. von entscheidender Bedeutung.
+
+Mit strukturierten Ausgaben können Sie das Problem der unterschiedlichen Ausgabeformate beheben und sich dabei zahlreiche Stunden der Aufforderungsingenieurwissenschaft oder der Abhängigkeit von anderen Open-Source-Tools ersparen. In diesem Abschnitt werden wir die strukturierten Ausgaben anhand des Beispiels der Funktion zur Stimmungsanalyse erläutern.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Erste Schritte](/static/images/Erste_Schritte_1727728380_16-9.png)
+</div>
+
+### Schritt-für-Schritt-Anleitung für die initiale Einrichtung
+
+In diesem Abschnitt lernen Sie, wie Sie mit den strukturierten Ausgaben von OpenAI beginnen können. Diese Funktion vereinfacht die Arbeit mit OpenAIs KI-Modellen erheblich, da sie die Einhaltung bestimmter Datenformate erzwingt.
+
+Dies ist besonders nützlich für Anwendungen, die präzise Datenformate erfordern. Bevor Sie beginnen, stellen Sie sicher, dass Sie die OpenAI Python-Bibliothek und die Pydantic-Bibliothek zur Definition und Validierung von JSON-Schemata installiert haben.
+
+Als erstes müssen Sie Ihren API-Schlüssel einrichten. Sie können dies entweder als Umgebungsvariable oder direkt in Ihrem Code tun.
+
+Dann sollten Sie Ihre Installation überprüfen, indem Sie ein einfaches Python-Skript erstellen und ausführen. Wenn alles korrekt eingerichtet ist, sollten Sie die Antwort des Modells in der Konsole sehen.
+
+Als nächstes müssen Sie ein Ausgabeschema mit Pydantic erstellen. Pydantic ermöglicht es Ihnen, Datenmodelle mit Python-Typenannotationen zu definieren.
+
+Diese Modelle können dann verwendet werden, um die Struktur der von den OpenAI-Modellen generierten Ausgaben zu erzwingen. Nachdem Sie Ihr Ausgabeschema definiert haben, können Sie es an die chat completions API von OpenAI übergeben.
+
+Stellen Sie sicher, dass Sie die Methode .parse() verwenden, die speziell für strukturierte Ausgaben geschrieben wurde. Abschließend sollten Sie sicherstellen, dass Sie einige bewährte Verfahren für die Arbeit mit strukturierten Ausgaben befolgen, um die Effektivität Ihrer Anwendung zu maximieren.
+### Erstellung eines Kontos oder Zugriff auf das Tool
+
+Bevor Sie mit OpenAI Structured Outputs arbeiten können, müssen Sie zunächst ein Konto erstellen oder auf das Tool zugreifen. Ein Konto bei OpenAI ermöglicht Ihnen den Zugang zu verschiedenen Features und Anwendungen, einschließlich Structured Outputs.
+
+Sobald Sie ein Konto haben, können Sie auf das Tool zugreifen und mit der API interagieren. Die Erstellung eines Kontos ist einfach und unkompliziert, Sie müssen nur die erforderlichen Informationen bereitstellen und die E-Mail-Adresse bestätigen, die Sie angegeben haben.
+
+Nachdem Sie Ihr Konto erstellt haben, können Sie auf das Tool zugreifen, indem Sie sich in Ihrem Konto anmelden und zum Bereich Structured Outputs navigieren. Hier finden Sie umfangreiche Ressourcen, einschließlich Dokumentation, Tutorials und Beispielcode, um Ihnen den Einstieg zu erleichtern.
+
+Denken Sie daran, sich mit den Best Practices und Richtlinien von OpenAI vertraut zu machen, um sicherzustellen, dass Sie das Tool effektiv und verantwortungsbewusst nutzen.
+### Übersicht über die Benutzeroberfläche
+
+In diesem Abschnitt werden wir die Benutzeroberfläche von OpenAI Structured Outputs untersuchen. Die Benutzeroberfläche ist intuitiv und einfach zu bedienen, sodass auch Anfänger problemlos mit ihr arbeiten können.
+
+Sie bietet eine klare Struktur und Navigation, die es den Benutzern ermöglicht, schnell und effizient durch die verschiedenen Funktionen und Einstellungen zu navigieren. Ein wesentlicher Bestandteil der Benutzeroberfläche ist das Dashboard, das eine Übersicht über alle verfügbaren Funktionen und Einstellungen bietet.
+
+Hier können Benutzer beispielsweise ihre API-Schlüssel verwalten, die Leistung ihrer Modelle überwachen und ihre Einstellungen anpassen. Darüber hinaus bietet das Dashboard auch Zugang zu verschiedenen Ressourcen wie Dokumentationen und Tutorials, die den Benutzern helfen, das Beste aus OpenAI Structured Outputs herauszuholen.
+
+Insgesamt bietet die Benutzeroberfläche von OpenAI Structured Outputs eine benutzerfreundliche und effiziente Möglichkeit, mit der leistungsstarken API zu interagieren.
+## Hauptfunktionen
+
+OpenAI Structured Outputs ist ein mächtiges Feature, das es ermöglicht, Sprachmodelle dazu zu zwingen, Antworten nur in dem von Ihnen festgelegten Format zu generieren. Dies vereinfacht nicht nur die Erstellung von Anwendungen, die eine genaue Datenformatierung erfordern, sondern spart auch zahlreiche Stunden für das Engineering von Eingabeaufforderungen oder die Abhängigkeit von anderen Open-Source-Tools.
+
+Mit Structured Outputs können Sie auch Funktionen aufrufen, was Ihnen effektiv Zugriff auf die Außenwelt ermöglicht. Einige verbreitete Beispiele sind: die Suche in einer Datenbank, das Abrufen von Wetterinformationen oder das Senden einer E-Mail.
+
+Darüber hinaus können Sie mit Structured Outputs die Pydantic-Bibliothek verwenden, um JSON-Schemas für Ihre Ausgaben zu definieren und zu validieren. Dabei ist zu beachten, dass Structured Outputs, obwohl sie sehr leistungsfähig sind, die Flexibilität der KI bei den Antworten einschränken können und eine sorgfältige Schema-Design erfordern, um die Struktur mit der gewünschten Detailebene in den Ausgaben auszubalancieren.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Hauptfunktionen](/static/images/Hauptfunktionen_1727728501_16-9.png)
+</div>
+
+### Funktion 1: Beschreibung und Verwendung
+
+Die Funktion 1 im Kontext von OpenAI Structured Outputs ist die Definition eines Ausgabeschemas. Dies ist der erste Schritt, um den Weg zu einer präzisen Datenformatierung zu ebnen.
+
+OpenAI verwendet hier die Pydantic-Bibliothek, ein Datenvalidierungs- und Einstellungsverwaltungstool für Python. Mit Pydantic können Sie Datenmodelle mit Python-Typ-Annotationen definieren.
+
+Diese Modelle können dann dazu verwendet werden, die Struktur der von den OpenAI-Modellen generierten Ausgaben zu erzwingen. Dies ermöglicht es Ihnen, die Antwortformate Ihrer LLMs (Language Models) genau zu bestimmen, was insbesondere bei Anwendungen, die eine präzise Datenformatierung erfordern, von unschätzbarem Wert ist.
+
+Es spart auch unzählige Stunden der Aufforderungstechnik und vermeidet die Notwendigkeit, sich auf andere Open-Source-Tools zu verlassen.
+### Funktion 2: Beschreibung und Verwendung
+
+Die OpenAI Structured Outputs-Funktion ist ein leistungsstarkes Werkzeug, das eine effiziente und zuverlässige Ausgabe von Daten in einem vordefinierten Format ermöglicht. Dies ist insbesondere für Anwendungen von großer Bedeutung, die eine präzise Datenformatierung erfordern, wie z.B.
+
+Datenbankanwendungen, Informationsgewinnungssysteme und mehr. Die Structured Outputs-Funktion ermöglicht es, dass LLMs (Language Models) Antworten nur im von Ihnen definierten Format generieren.
+
+Diese Funktion spart Ihnen unzählige Stunden der Aufforderungstechnik oder der Abhängigkeit von anderen Open-Source-Tools. Mit dem neuen classify_sentiment_with_structured_outputs beispielsweise sind alle Antworten im gleichen Format.
+
+Dies ist ein großer Fortschritt, der die Verwendung von KI in Anwendungen erheblich erleichtert. Wie bei jeder neuen Technologie gibt es jedoch auch bei Structured Outputs Herausforderungen und Best Practices, die es zu verstehen und zu meistern gilt.
+
+Dazu gehört das richtige Verständnis und die richtige Verwendung von Pydantic Modellen zur Definition der erwarteten Ausgabestruktur, die korrekte Verwendung der parse Helper-Methode und die Kenntnis der besten Vorgehensweisen bei der Nutzung von Structured Outputs. Wenn diese Punkte richtig verstanden und angewendet werden, kann die Structured Outputs-Funktion dazu beitragen, Ihre KI-Anwendungen effizienter und zuverlässiger zu machen.
+### Funktion 3: Beschreibung und Verwendung
+
+Die dritte Funktion, die wir in unserem Leitfaden über OpenAI Strukturierte Ausgaben behandeln, ist die Funktion zum Aufrufen. Diese Funktion ist auch als Tool-Aufruf bekannt und bietet eine breite Palette von Anwendungsmöglichkeiten.
+
+Sie ermöglicht es den Sprachmodellen, auf benutzerdefinierte Funktionen zuzugreifen und diese effektiv in die Außenwelt einzubinden. Durch die Kombination von Funktionen zum Aufrufen und strukturierten Ausgaben können OpenAI-Modelle deutlich flexibler und vielseitiger eingesetzt werden.
+
+Mit der Funktion zum Aufrufen können Sie JSON-Schemas für komplexe Funktionen erstellen, ohne manuell jeden Parameter mit Typenhinweisen zu definieren. Stattdessen können Sie Pydantic-Modelle verwenden, um das erwartete Eingabeformat zu definieren und die Kompatibilität zu gewährleisten.
+
+Dies ermöglicht es Ihnen, OpenAI-Modelle effizient in Ihre eigenen Anwendungen zu integrieren und dabei die Kontrolle über das Ausgabeformat zu behalten. Die Funktion zum Aufrufen ist ein wesentlicher Bestandteil der neuen OpenAI-Funktionen und macht die Integration von AI-gesteuerten Funktionen in Ihre Anwendungen einfacher und effizienter.
+## Praktische Beispiele
+
+Dieser Abschnitt veranschaulicht die Anwendung von OpenAI Structured Outputs anhand praktischer Beispiele. Zuerst beschäftigen wir uns mit der Definition eines Output-Schemas mit Pydantic.
+
+Pydantic ist eine Datenvalidierungs- und Einstellungsverwaltungsbibliothek für Python, die es uns erlaubt, Datenmodelle mit Python-Typennotationen zu definieren. Diese Modelle können dann verwendet werden, um die Struktur der von OpenAI-Modellen generierten Ausgaben zu erzwingen.
+
+Ein Beispiel für ein Pydantic-Modell könnte folgendermaßen aussehen: Wir definieren eine Klasse 'SentimentResponse', in der wir ein Feld 'sentiment' definieren. Dieses Feld akzeptiert nur die Werte 'positiv', 'negativ' oder 'neutral'.
+
+Wenn wir dieses Modell als Teil unserer OpenAI API-Anfragen übergeben, werden die Ausgaben nur eines dieser Worte sein. Ein weiteres interessantes Feature ist das Aufrufen von Funktionen mit strukturierten Ausgaben.
+
+Mit dieser Fähigkeit können wir Sprachmodelle mit benutzerdefinierten Funktionen verbinden. Dies eröffnet den Modellen effektiv den Zugang zur Außenwelt.
+
+Mit strukturierten Ausgaben wird die Nutzung von Funktionen mit OpenAI Modellen deutlich vereinfacht. Früher erforderten die Funktionen, die Sie an OpenAI Modelle weitergegeben haben, das Schreiben komplexer JSON-Schemata, die jeden Funktionsparameter mit Typenhinweisen umreißen.
+
+Mit strukturierten Ausgaben wird dies durch die Verwendung von Pydantic-Modellen gelöst.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Praktische Beispiele](/static/images/Praktische_Beispiele_1727728637_16-9.png)
+</div>
+
+### Codebeispiele, die die Funktionen in Aktion zeigen
+
+In diesem Abschnitt werden wir uns einige Codebeispiele ansehen, die die Funktionen von OpenAI Structured Outputs in Aktion zeigen. Diese Beispiele wurden speziell ausgewählt, um die vielseitigen Einsatzmöglichkeiten dieser Funktion zu veranschaulichen.
+
+Wir beginnen mit einem einfachen Beispiel, das zeigt, wie Sie die Strukturierte Ausgabe verwenden können, um die Ausgabe eines Sentiment-Analysemodells zu standardisieren. Anschließend gehen wir auf komplexere Szenarien ein, in denen die Strukturierte Ausgabe verwendet wird, um die Ausgabe einer Funktion zu definieren, die an ein OpenAI-Modell übergeben wird.
+
+Schließlich enden wir mit einem Beispiel, das zeigt, wie Sie die Strukturierte Ausgabe verwenden können, um die Ausgabe eines Klassifizierungsmodells zu standardisieren. Mit diesen Beispielen sollten Sie eine gute Vorstellung davon haben, wie Sie die Funktionen von OpenAI Structured Outputs in Ihren eigenen Projekten verwenden können.
+### Praxisnahe Anwendungen des Tools
+
+Die Strukturierten Ausgaben von OpenAI bieten eine beeindruckende Vielfalt an praktischen Anwendungsmöglichkeiten. Sie können in verschiedenen Szenarien eingesetzt werden, von der Gestaltung konsistenter Benutzerantworten in Chatbot-Anwendungen bis hin zur Erstellung spezifischer Ausgabeformate in datenintensiven Anwendungen.
+
+Mit dieser Funktion können Entwickler die Ausgabeformate ihrer Modelle präzise kontrollieren, wodurch sie in der Lage sind, hochpräzise, anwendungsspezifische Lösungen zu erstellen. Die Strukturierten Ausgaben können auch in Kombination mit Funktionen wie dem Aufruf von Funktionen genutzt werden, um die Interaktion der Modelle mit benutzerdefinierten Funktionen zu steuern.
+
+Daher ermöglichen sie es, AI-Modelle nahtlos in bestehende Anwendungen und Systeme zu integrieren. Dies stellt einen wesentlichen Fortschritt in der Anwendungsentwicklung mit künstlicher Intelligenz dar und verspricht, die Effizienz und Genauigkeit von AI-gesteuerten Anwendungen erheblich zu verbessern.
+## Fehlerbehebung
+
+Bei der Arbeit mit OpenAI Structured Outputs können verschiedene Probleme auftreten. Hier sind einige häufige Probleme und ihre Lösungen.
+
+1. Fehler bei der Definition von Pydantic-Modellen: Achten Sie darauf, dass Sie die korrekten Datentypen für Ihre Modelle verwenden und dass alle erforderlichen Felder definiert sind.
+
+2. Fehler bei der Anwendung von Structured Outputs auf Funktionen: Stellen Sie sicher, dass Ihre Funktionen korrekt definiert sind und dass die erwarteten Ausgaben mit den definierten Pydantic-Modellen übereinstimmen.
+
+3. Fehler bei der Verwendung von Structured Outputs mit dem OpenAI API: Überprüfen Sie, ob Sie die API korrekt verwendet haben und ob Ihr API-Schlüssel gültig ist.
+
+4. Fehlende oder unerwartete Ausgaben: Stellen Sie sicher, dass Ihre Anfragen korrekt formatiert sind und dass Sie die richtigen Modelle für Ihre Ausgaben verwenden.
+
+Bei weiteren Fragen oder Problemen ist es hilfreich, die offizielle OpenAI-Dokumentation zu konsultieren oder sich an die OpenAI-Community zu wenden.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Fehlerbehebung](/static/images/Fehlerbehebung_1727728752_16-9.png)
+</div>
+
+## Fazit
+
+In diesem Leitfaden haben wir uns eingehend mit OpenAI Structured Outputs beschäftigt. Wir haben die Bedeutung von strukturierten Ausgaben in KI-Anwendungen hervorgehoben und ihre Funktionsweise erläutert.
+
+Durch die Verwendung von Structured Outputs können wir sicherstellen, dass die Ausgaben unserer KI-Modelle in einem vorher festgelegten Format generiert werden. Das spart nicht nur Zeit beim Entwerfen von Aufforderungen, sondern erhöht auch die Genauigkeit und Zuverlässigkeit unserer Anwendungen.
+
+Wir haben auch gesehen, wie Structured Outputs in Verbindung mit Funktionen genutzt werden können, um komplexe Schemata zu definieren und zu validieren. Abschließend haben wir einige bewährte Methoden für die Verwendung von Structured Outputs diskutiert.
+
+Insgesamt ist OpenAI Structured Outputs ein mächtiges Werkzeug, das den Prozess der KI-Entwicklung erheblich vereinfacht und optimiert.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Fazit](/static/images/Fazit_1727728844_16-9.png)
+</div>
+
+### Zusammenfassung des Tutorials
+
+In diesem Artikel haben wir uns mit der neuen Funktion 'Structured Outputs' der OpenAI API beschäftigt. Wir haben gesehen, wie diese Funktion Sprachmodelle dazu zwingt, Ausgaben im von uns festgelegten Format zu produzieren.
+
+Wir haben gelernt, wie man sie in Kombination mit Funktionen aufruft und einige Best Practices erkundet, um diese Funktion optimal zu nutzen. Pydantic-Modelle spielen dabei eine entscheidende Rolle, indem sie das Schema für die gewünschte Ausgabestruktur definieren, das dann an die OpenAI API übergeben wird, um das Antwortformat durchzusetzen.
+
+'Structured Outputs' können auch in Verbindung mit Funktionen aufgerufen werden, um den Prozess der Definition von Funktionsparametern und erwarteten Ausgaben zu vereinfachen. Die Vorteile der Verwendung von 'Structured Outputs' umfassen unter anderem konsistente Antwortformate, reduzierten Bedarf an Nachbearbeitung, verbesserte Zuverlässigkeit in KI-Anwendungen und einfachere Integration in bestehende Systeme.
+
+Es gibt jedoch auch einige Einschränkungen, da 'Structured Outputs' die Flexibilität der KI-Antworten einschränken können und eine sorgfältige Schemaentwicklung erfordern, um die Struktur mit dem gewünschten Detailgrad in den Ausgaben auszubalancieren.
+### Anregung zur weiteren Erkundung
+
+Jetzt, da Sie einen umfassenden Überblick über OpenAI Strukturierte Ausgaben und ihren Einsatz in KI-Anwendungen haben, ist es an der Zeit, tiefer zu graben und Ihre Fähigkeiten zu verbessern. Ein guter Ausgangspunkt wäre, verschiedene Anwendungsfälle zu erforschen und zu verstehen, wie Strukturierte Ausgaben dazu beitragen können, diese effizienter zu gestalten.
+
+Sie könnten auch damit beginnen, Ihre eigenen Pydantic-Modelle zu erstellen und zu testen, um ein Gefühl dafür zu bekommen, wie die Modelldefinition funktioniert. Darüber hinaus könnten Sie sich darauf konzentrieren, die Fähigkeiten zur Fehlerbehandlung und Validierung zu verbessern, die unerlässlich sind, um effektive und robuste KI-Anwendungen zu erstellen.
+
+Schließlich wäre es vorteilhaft, sich mit der OpenAI-Dokumentation und dem OpenAI-Community-Forum vertraut zu machen, um auf dem Laufenden zu bleiben und sich mit anderen Entwicklern auszutauschen.
+## Zusätzliche Ressourcen
+
+Dieser Abschnitt präsentiert zusätzliche Ressourcen, die dir dabei helfen werden, dein Verständnis und deine Fähigkeiten im Umgang mit OpenAI Structured Outputs zu verbessern. Es gibt viele qualitativ hochwertige Online-Kurse, Blogs und Tutorials, die verschiedene Aspekte von Structured Outputs, einschließlich seiner Syntax und Anwendungen, ausführlich behandeln.
+
+Diese Ressourcen können besonders nützlich sein, wenn du beginnst, Anwendungen zu entwickeln, die eine präzise Datenformatierung erfordern. Darüber hinaus können sie dir dabei helfen, die besten Praktiken zu erlernen, um das Potenzial von Structured Outputs voll auszuschöpfen, und um die häufigsten Fallstricke zu vermeiden, die Entwickler beim Umgang mit dieser Funktion häufig treffen.
+
+Schließlich können diese Ressourcen dir dabei helfen, auf dem Laufenden zu bleiben über die neuesten Entwicklungen und Verbesserungen in OpenAI Structured Outputs, so dass du immer die leistungsfähigsten und effizientesten Lösungen für deine Projekte finden kannst.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Zusätzliche Ressourcen](/static/images/Zusätzliche_Ressourcen_1727728942_16-9.png)
+</div>
+
+### Links zu verwandten Artikeln, Dokumentationen oder Foren
+
+Um Ihr Verständnis von Structured Outputs und deren Anwendung zu vertiefen, finden Sie im Folgenden einige nützliche Links zu verwandten Artikeln, Dokumentationen und Foren. Diese Quellen bieten weitere Einblicke in die Funktionsweise von Structured Outputs und deren praktische Anwendung in verschiedenen Kontexten.
+
+1. OpenAI Blog: Hier finden Sie offizielle Ankündigungen und Artikel über neue Funktionen und Updates von OpenAI.
+
+2. OpenAI API-Dokumentation: Diese Dokumentation bietet eine detaillierte Anleitung zur Nutzung der OpenAI API, einschließlich der Structured Outputs-Funktion.
+
+3. Stack Overflow: Auf dieser Plattform können Sie Fragen stellen und Antworten zu spezifischen Problemen im Zusammenhang mit Structured Outputs finden.
+
+4. GitHub: Hier finden Sie OpenAI-bezogene Projekte und Codebeispiele, die Structured Outputs verwenden.
+
+5. Medium: Auf dieser Plattform veröffentlichen viele AI-Enthusiasten und Experten ihre Tutorials und Artikel, einschließlich solcher, die sich auf Structured Outputs beziehen.
+
+Durch die Kombination dieser Ressourcen mit dem Wissen, das Sie aus diesem Artikel gewonnen haben, können Sie Ihre Fähigkeiten in der Nutzung von Structured Outputs effektiv erweitern und verbessern.
