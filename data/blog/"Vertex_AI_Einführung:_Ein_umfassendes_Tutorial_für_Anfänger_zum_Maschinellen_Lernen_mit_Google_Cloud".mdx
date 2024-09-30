@@ -1,0 +1,403 @@
+---
+title: '"Vertex AI Einführung: Ein umfassendes Tutorial für Anfänger zum Maschinellen Lernen mit Google Cloud"'
+date: '2024-09-30'
+tags: ['KI', 'SEO', 'Generative AI', 'Tutorial', 'Automatisierung', 'AI']
+draft: false
+images: ['/static/images/"Vertex_AI_Einführung:_Ein_umfassendes_Tutorial_für_Anfänger_zum_Maschinellen_Lernen_mit_Google_Cloud"_1727699329_main.png']
+summary: '"Vertex AI Tutorial: Ein Leitfaden für Anfänger zum Erlernen von Maschinellem Lernen mit Google Cloud."'
+---
+
+## Einführung
+
+Dieser Artikel ist ein umfassendes Tutorial, das sich an Anfänger im Bereich des maschinellen Lernens richtet. Unser Hauptaugenmerk wird auf Vertex AI liegen, einem Produkt von Google Cloud, das darauf abzielt, den Prozess des maschinellen Lernens auf Unternehmensebene zu vereinfachen.
+
+Vertex AI wurde 2021 eingeführt und hat schnell an Popularität gewonnen, da es den gesamten Lebenszyklus von maschinellem Lernen abdeckt, von der Datenvorbereitung bis zur Vorhersageerstellung. Mit diesem Tutorial werden Sie nicht nur lernen, wie man Vertex AI nutzt, sondern auch ein Modell bereitstellen, das Vorhersagen für eine Klassifizierungsaufgabe generieren kann.
+
+Bevor wir jedoch in die Details von Vertex AI eintauchen, ist es wichtig, ein grundlegendes Verständnis von Google Cloud Services zu haben, da diese in enger Verbindung mit Vertex AI stehen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Einführung](/static/images/Einführung_1727698317_16-9.png)
+</div>
+
+### Überblick über das Thema und seine Bedeutung
+
+Obwohl die meisten Menschen Google mit Suchmaschinen assoziieren, hat das Unternehmen auch tiefe Wurzeln in der Datenwissenschaftsbranche. Es liefert konsequent hochmoderne Produkte und Lösungen, die darauf abzielen, den größtmöglichen Nutzen aus Daten zu ziehen.
+
+Eines ihrer Produkte, Vertex AI, wurde 2021 veröffentlicht, um den Prozess des maschinellen Lernens auf Unternehmensebene zu vereinfachen. In diesem Tutorial werden wir lernen, wie man mit der Vertex AI-Plattform von Google beginnt und wie man sie verwendet, um eine breite Palette von Aufgaben des ML-Lebenszyklus abzudecken.
+
+Wir werden mit einem eingesetzten Modell abschließen, das wir verwenden können, um Anfragen zu senden, um Vorhersagen für eine Klassifizierungsaufgabe zu generieren. 
+### Ziele des Tutorials
+
+In diesem Tutorial werden wir uns mit der Vertex AI-Plattform von Google vertraut machen, die dazu dient, den Prozess des maschinellen Lernens auf Unternehmensebene zu vereinfachen. Wir werden lernen, wie man ein Modell auf dieser Plattform einsetzt und es verwendet, um eine Vielzahl von Aufgaben im Lebenszyklus des maschinellen Lernens zu bewältigen.
+
+Am Ende dieses Tutorials werden wir in der Lage sein, Anfragen an unser bereitgestelltes Modell zu senden, um Vorhersagen für eine Klassifizierungsaufgabe zu generieren. Das Hauptziel dieses Tutorials ist es, den Lesern ein grundlegendes Verständnis von Vertex AI und seiner Funktionsweise zu vermitteln.
+
+Wir werden auch diskutieren, wie man die Google Cloud Services nutzt, die in Synchronisierung mit Vertex AI arbeiten, um den Workflow des maschinellen Lernens zu vereinheitlichen. Schließlich werden wir uns auch mit den Kosten auseinandersetzen, die bei der Verwendung von Vertex AI anfallen können.
+## Voraussetzungen
+
+Bevor wir uns in das Tutorial stürzen, sollten wir einige grundlegende Voraussetzungen klären, die Sie benötigen, um erfolgreich mit Vertex AI zu arbeiten. Erstens ist ein grundlegendes Verständnis von Machine Learning (ML) und Künstlicher Intelligenz (KI) hilfreich.
+
+Sie sollten mit grundlegenden Konzepten wie Supervised Learning, Unsupervised Learning und Reinforcement Learning vertraut sein. Erfahrung mit Python und Bibliotheken wie TensorFlow oder PyTorch ist ebenfalls von Vorteil, da viele der in Vertex AI verfügbaren Tools auf diesen Technologien basieren.
+
+Zweitens benötigen Sie einen Google Cloud Account. Wenn Sie noch keinen haben, können Sie sich auf der Google Cloud Website registrieren und ein kostenloses Konto erstellen, das Zugang zu vielen grundlegenden Diensten bietet.
+
+Schließlich ist es hilfreich, über Erfahrung mit Cloud-Computing und insbesondere mit Google Cloud Diensten zu verfügen. Wenn Sie diese Voraussetzungen erfüllen, sind Sie gut gerüstet, um das Beste aus diesem Tutorial herauszuholen und Ihre Reise in die Welt des maschinellen Lernens mit Vertex AI zu beginnen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Voraussetzungen](/static/images/Voraussetzungen_1727698421_16-9.png)
+</div>
+
+### Erforderliches Wissen oder Fähigkeiten
+
+Um das Tutorial effektiv zu nutzen und die Vorteile der Vertex AI-Plattform voll ausschöpfen zu können, sind bestimmte Kenntnisse und Fähigkeiten erforderlich. Zunächst einmal ist ein grundlegendes Verständnis von maschinellem Lernen und den damit verbundenen Techniken von Vorteil.
+
+Darüber hinaus ist es hilfreich, wenn Sie mit der Google Cloud-Plattform und den dazugehörigen Diensten vertraut sind. Denn Vertex AI integriert sich nahtlos in diese Dienste, um ein umfassendes, einheitliches Erlebnis zu bieten.
+
+Eine Vorkenntnis in Bezug auf Datenanalyse und -verarbeitung wäre ebenfalls von Vorteil, da diese Fähigkeiten bei der Arbeit mit maschinellem Lernen häufig zum Einsatz kommen. Ein grundlegendes Verständnis von Programmierung, insbesondere in Python, ist ebenfalls hilfreich, da viele der Beispiele und Tutorials in dieser Sprache geschrieben sind.
+
+Schließlich ist es wichtig, dass Sie bereit sind, neue Konzepte zu lernen und zu erforschen, da die Technologien und Techniken, die in diesem Bereich verwendet werden, sich schnell weiterentwickeln.
+### Notwendige Tools oder Softwareinstallationen
+
+Um das Tutorial über Vertex AI erfolgreich durchzuführen, sind einige Vorbereitungen und Installationen notwendig. Zunächst wird ein Google Cloud-Konto benötigt, da Vertex AI ein Produkt von Google Cloud ist.
+
+Nach der Kontoerstellung muss eine Rechnungsadresse hinzugefügt werden, da einige Funktionen von Vertex AI kostenpflichtig sind. Einige der in diesem Tutorial verwendeten Funktionen sind jedoch kostenlos.
+
+Nach der Einrichtung des Google Cloud-Kontos muss die Vertex AI-Konsole aufgerufen werden. Dort kann der Nutzer ein neues Projekt erstellen und mit der Arbeit beginnen.
+
+Zusätzlich zu Vertex AI benötigen Sie Zugriff auf Google Cloud Storage, da dies der Speicherort für die zu verwendenden Daten ist. Für die direkte Interaktion mit Vertex AI und Google Cloud Storage wird empfohlen, die Google Cloud SDK zu installieren.
+
+Dieses Software Development Kit ermöglicht es, Google Cloud-Dienste über die Befehlszeile zu steuern. Schließlich sind Kenntnisse in Python und Machine Learning erforderlich, um das Tutorial optimal nutzen zu können.
+
+Es wird empfohlen, eine Entwicklungsumgebung wie Jupyter Notebook zu verwenden, um den Python-Code für das Machine Learning-Modell zu schreiben und auszuführen. Zusätzlich kann es hilfreich sein, Bibliotheken wie pandas und scikit-learn zu installieren, um Datenanalysen durchzuführen und Machine Learning-Modelle zu erstellen.
+## Erste Schritte
+
+In diesem Leitfaden führen wir Sie durch die ersten Schritte mit Vertex AI, ein Produkt von Google, das darauf abzielt, den Prozess des maschinellen Lernens auf Unternehmensebene zu vereinfachen. Vertex AI wurde 2021 eingeführt und hat sich seitdem als effizientes Werkzeug für eine Vielzahl von Aufgaben im Lebenszyklus des maschinellen Lernens etabliert.
+
+Am Ende dieses Tutorials werden Sie ein bereitgestelltes Modell haben, das Sie verwenden können, um Vorhersagen für eine Klassifizierungsaufgabe zu generieren. Bevor wir uns jedoch mit Vertex AI befassen, ist es wichtig, seine Muttergesellschaft, Google Cloud Services, zu verstehen.
+
+Google Cloud Services bietet eine breite Palette von Cloud-Computing-Lösungen, die Speicher, Netzwerk, Datenbanken, Analytik und maschinelles Lernen umfassen. Diese Dienste arbeiten synchron mit Vertex AI, um Ihren Workflow für maschinelles Lernen zu vereinheitlichen.
+
+Lassen Sie uns nun mit der Einrichtung Ihrer Google Cloud Console für Vertex AI beginnen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Erste Schritte](/static/images/Erste_Schritte_1727698532_16-9.png)
+</div>
+
+### Schritt-für-Schritt-Anleitung für die initiale Einrichtung
+
+Bei der ersten Einrichtung von Vertex AI gibt es einige wichtige Schritte zu beachten. Zuerst müssen Sie sich in Ihrem Google Cloud-Konto anmelden und die Vertex AI-Plattform auswählen.
+
+Dann müssen Sie ein Projekt erstellen, das alle Ihre Ressourcen und Konfigurationen für Ihren Maschinenlern-Auftrag organisiert. Vergessen Sie nicht, Ihre Abrechnungsinformationen hinzuzufügen, da Vertex AI eine kostenpflichtige Plattform ist.
+
+Danach können Sie zu Ihrer Vertex AI-Konsole navigieren und dort die gewünschten Dienste aktivieren. Um einen Datensatz in Vertex AI hochzuladen, müssen Sie zunächst einen Speicherbereich erstellen und Ihre Daten dort ablegen.
+
+Danach können Sie Ihren Datensatz in Vertex AI importieren und mit dem Training Ihres Modells beginnen. Stellen Sie sicher, dass Sie ein passendes Modell auswählen und die richtigen Parameter für Ihr Training festlegen.
+
+Nachdem Sie Ihr Modell trainiert haben, können Sie es einsetzen und Vorhersagen anfordern. Diese Schritte können je nach den spezifischen Anforderungen Ihres Projekts variieren.
+### Erstellung eines Kontos oder Zugriff auf das Tool
+
+Bevor wir mit dem eigentlichen Tutorial beginnen, müssen wir zunächst ein Konto erstellen, um auf das Tool zugreifen zu können. Wenn Sie noch kein Konto bei Google Cloud haben, können Sie ganz einfach eines erstellen.
+
+Besuchen Sie dazu einfach die Website cloud.google.com und klicken Sie auf 'Kostenlos starten', um Ihr kostenloses Testkonto zu erstellen. Wenn Sie bereits ein Konto haben, können Sie direkt zur Konsole unter console.cloud.google.com gehen, um loszulegen.
+
+Der Zugriff auf Vertex AI erfolgt über Ihr Google-Konto. Stellen Sie sicher, dass Sie sich mit dem richtigen Konto anmelden, bevor Sie fortfahren.
+
+Sobald Sie eingeloggt sind, können Sie auf die Vertex AI-Plattform zugreifen, indem Sie Vertex AI in die Suchleiste eingeben und auf das entsprechende Ergebnis klicken. Dies wird Sie zu Ihrem Vertex AI-Dashboard führen.
+
+Jetzt sind wir bereit, mit unserem Tutorial zur maschinellen Lernen mit Google Cloud und Vertex AI zu beginnen.
+### Übersicht über die Benutzeroberfläche
+
+In diesem Abschnitt des Vertex AI Tutorials konzentrieren wir uns auf die Benutzeroberfläche (UI) von Google's Vertex AI Plattform. Die UI ist intuitiv und benutzerfreundlich gestaltet, um Anfängern den Einstieg in das Maschinelle Lernen zu erleichtern.
+
+Von der Erstellung eines Projekts bis hin zur Implementierung eines Modells, die Prozesse sind klar strukturiert und einfach zu verfolgen. Die Hauptkomponenten der UI sind das Dashboard, die Modell-Registry, die Trainings- und Vorhersage-Jobs und die Arbeitsbereiche.
+
+Das Dashboard bietet einen Überblick über alle aktuellen Aktivitäten und Ressourcen, während die Modell-Registry alle erstellten und bereitgestellten Modelle anzeigt. Die Trainings- und Vorhersage-Jobs zeigen den aktuellen Status Ihrer Maschinenlern-Aufgaben, während die Arbeitsbereiche Tools zur Verfügung stellen, um Modelle zu erstellen und zu optimieren.
+
+Egal, ob Sie ein Anfänger oder ein erfahrener Data Scientist sind, die Benutzeroberfläche von Vertex AI ist konzipiert, um Ihre Maschinenlern-Projekte effizient und effektiv zu verwalten.
+## Hauptfunktionen
+
+Der Artikel 'Vertex AI Einführung: Ein umfassendes Tutorial für Anfänger zum Maschinellen Lernen mit Google Cloud' bietet eine detaillierte Einführung in die Nutzung von Google's Vertex AI zur Durchführung von maschinellem Lernen auf Unternehmensebene. Er beginnt mit einer allgemeinen Einführung in Google Cloud und seine breite Palette von Dienstleistungen, einschließlich Datenverwaltung, Rechenressourcen und Analysen.
+
+Im Kontext des maschinellen Lernens betont der Artikel die Notwendigkeit einer diversifizierten Expertengruppe und einer Vielzahl von Tools zur effektiven Koordination der verschiedenen Stadien und Unterstadien des maschinellen Lernens. Vertex AI wird als einheitliche Plattform vorgestellt, die den gesamten Prozess vereinfacht und für Nutzer aller Fähigkeitsstufen zugänglich macht.
+
+Der Artikel schlägt dann vor, wie man ein Google Cloud Console-Konto für Vertex AI einrichtet und ein Modell bereitstellt, das Vorhersagen für eine Klassifizierungsaufgabe generieren kann. Darüber hinaus bietet er eine Anleitung zur Nutzung von Google Cloud Services und erklärt, wie man ein Dataset in Vertex AI hochlädt.
+
+Der Artikel schließt mit einer detaillierten Anleitung zur Konfiguration von Jupyterlab und Compute-Ressourcen in Vertex AI Workbench und zur Schulung und Bereitstellung von AutoML-Modellen in Vertex AI.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Hauptfunktionen](/static/images/Hauptfunktionen_1727698637_16-9.png)
+</div>
+
+### Detaillierte Erklärungen der Hauptfunktionen
+
+Im Kontext dieses Vertex AI-Tutorials werden wir uns mit den Hauptfunktionen der Plattform befassen. Diese Funktionen erleichtern den Zugang zu maschinellem Lernen und Datenwissenschaft für Anfänger und Experten gleichermaßen.
+
+Einige der wichtigsten Funktionen sind: 
+
+- **Einheitliche Benutzeroberfläche:** Vertex AI bietet eine zentrale Plattform, über die Sie auf alle Werkzeuge und Dienste für maschinelles Lernen zugreifen können, die Google Cloud zu bieten hat.
+
+- **AutoML-Funktionen:** Mit Vertex AI können Benutzer ohne tiefgehende Kenntnisse des maschinellen Lernens Modelle trainieren und implementieren. Mit AutoML können Sie Modelle für Aufgaben wie Bild-, Text- und Tabellenklassifizierung erstellen.
+
+- **Big Data-Integration:** Vertex AI ist vollständig in Google Cloud integriert, was bedeutet, dass Sie problemlos auf Big Data-Werkzeuge wie BigQuery und Cloud Storage zugreifen können.
+
+Dies erleichtert das Management und die Analyse großer Datenmengen.
+
+- **Robuste ML-Operationsfunktionen:** Vertex AI bietet Funktionen wie kontinuierliches Training, Modellüberwachung und Pipelines, um den gesamten Lebenszyklus des maschinellen Lernens zu unterstützen.
+
+- **Unterstützung für benutzerdefinierte Modelle und Trainingsjobs:** Mit Vertex AI können Sie Ihre eigenen Modelle und Trainingsjobs erstellen und ausführen, was Flexibilität und Kontrolle über Ihren ML-Workflow ermöglicht.
+
+In diesem Tutorial werden wir uns darauf konzentrieren, diese Funktionen zu nutzen, um ein umfassendes Verständnis von Vertex AI zu erlangen und effektiv Modelle für maschinelles Lernen zu erstellen und bereitzustellen.
+### Funktion 1: Beschreibung und Verwendung
+
+Unsere Einführung in Vertex AI beginnt mit einer detaillierten Beschreibung und Verwendung der Funktion 1. Diese Funktion ist ein integraler Bestandteil von Vertex AI und bietet eine Reihe von Vorteilen, die sie zu einem unverzichtbaren Werkzeug für Maschinelles Lernen auf Google Cloud machen.
+
+Die Funktion 1 ermöglicht es den Nutzern, eine Vielzahl von Aufgaben im Lebenszyklus des Maschinellen Lernens zu bewältigen, indem sie ein vereinfachtes und einheitliches Prozessmodell bietet. Dieses Modell beinhaltet verschiedene Stufen von der Datenaufbereitung bis zur Modellimplementierung und Vorhersageerstellung.
+
+Durch die Verwendung der Funktion 1 können Anfänger und Experten gleichermaßen den gesamten Prozess des Maschinellen Lernens auf einer einzigen Plattform durchführen. Darüber hinaus ist die Funktion 1 sowohl für kleine als auch für große ML-Anwendungen skalierbar und erfordert keine spezialisierten Kenntnisse oder Fähigkeiten, was sie zu einer idealen Wahl für Anfänger macht.
+
+In diesem Tutorial werden wir uns auf die praktische Anwendung der Funktion 1 konzentrieren, indem wir ein Modell erstellen, trainieren und bereitstellen, das in der Lage ist, Vorhersagen für eine Klassifikationsaufgabe zu generieren. Am Ende dieses Tutorials werden Sie in der Lage sein, die Funktion 1 effektiv zu nutzen, um Ihre eigenen ML-Projekte auf Google Cloud zu realisieren.
+### Funktion 2: Beschreibung und Verwendung
+
+Der zweite Aspekt von Vertex AI, den wir in diesem Tutorial genauer betrachten wollen, ist die Möglichkeit benutzerdefinierte Modelle zu trainieren und einzusetzen. Im Gegensatz zu AutoML-Modellen, die von Vertex AI automatisch generiert und optimiert werden, können benutzerdefinierte Modelle vollständig von den Benutzern kontrolliert und angepasst werden.
+
+Dies ermöglicht eine größere Flexibilität und Kontrolle über den Trainingsprozess und die resultierenden Modelle. Das Trainieren und Einsetzen von benutzerdefinierten Modellen in Vertex AI erfordert jedoch mehr Erfahrung und technisches Know-how als das Arbeiten mit AutoML-Modellen.
+
+Besonders wichtig ist das Verständnis von Docker-Containern, da diese im Prozess eine entscheidende Rolle spielen. Trotz der zusätzlichen Komplexität kann das Arbeiten mit benutzerdefinierten Modellen in bestimmten Szenarien sehr wertvoll sein, insbesondere wenn spezifische Anpassungen oder Optimierungen erforderlich sind, die über die Möglichkeiten von AutoML hinausgehen.
+### Funktion 3: Beschreibung und Verwendung
+
+Diese Funktion innerhalb des Vertex AI-Tutorials bezieht sich auf das Training und den Einsatz von AutoML-Modellen in Vertex AI. AutoML ist ein Produkt von Google, das maschinelles Lernen zugänglich für Nicht-Experten macht und die Modellentwicklung automatisiert.
+
+Es ist ideal für Anfänger und diejenigen, die nicht die Zeit oder Ressourcen haben, um sich eingehend mit maschinellem Lernen zu beschäftigen.
+
+Mit AutoML in Vertex AI können Sie ein Modell trainieren, ohne eine einzige Zeile Code zu schreiben. Sie laden einfach Ihre Daten hoch, wählen das Ziel Ihrer Vorhersage und lassen AutoML die Arbeit erledigen.
+
+Der Prozess beinhaltet die automatische Vorverarbeitung Ihrer Daten, die Auswahl des besten Modells aus einer Reihe von Kandidaten und das Tuning der Hyperparameter des Modells.
+
+Nachdem Ihr Modell trainiert wurde, können Sie es in Ihre Anwendung einbetten und Vorhersagen treffen. Sie können auch die Leistung Ihres Modells überwachen und es bei Bedarf neu trainieren.
+
+Es ist wichtig zu beachten, dass, obwohl AutoML die Modellentwicklung erheblich vereinfacht, es immer noch wichtig ist, ein grundlegendes Verständnis von maschinellem Lernen zu haben.
+
+Dies ermöglicht es Ihnen, die richtigen Entscheidungen in Bezug auf Ihre Daten und Vorhersageziele zu treffen, und hilft Ihnen, die Ergebnisse Ihrer Modelle zu interpretieren.
+## Praktische Beispiele
+
+In diesem Abschnitt werden wir einige praktische Beispiele für die Anwendung von Vertex AI durchgehen. Zunächst werden wir uns mit dem Einrichten Ihrer Google Cloud-Konsole für Vertex AI befassen.
+
+Es ist wichtig zu beachten, dass das Mitverfolgen dieses Tutorials einige Kosten verursachen kann. Als nächstes werden wir uns mit dem Hochladen eines Datensatzes in Vertex AI beschäftigen.
+
+Es gibt verschiedene Möglichkeiten, einen Datensatz zu Vertex AI hinzuzufügen, aber für diesen Abschnitt werden wir eine lokale CSV-Datei verwenden. Anschließend werden wir uns mit der Konfiguration von Jupyterlab und den Compute-Ressourcen in der Vertex AI Workbench befassen.
+
+Hier bietet Vertex AI eine einheitliche Plattform und bietet Entwicklungsumgebungen, die als Workbenches bezeichnet werden. Danach werden wir uns mit dem Training und der Bereitstellung von AutoML-Modellen in Vertex AI sowie dem Training und der Bereitstellung von benutzerdefinierten Modellen in Vertex AI befassen.
+
+Abschließend werden wir überlegen, wie Sie Ihre Datenkompetenzen mit DataCamp für Mobilgeräte weiterentwickeln können.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Praktische Beispiele](/static/images/Praktische_Beispiele_1727698794_16-9.png)
+</div>
+
+### Codebeispiele, die die Funktionen in Aktion zeigen
+
+In diesem Abschnitt werden wir einige Codebeispiele betrachten, die die Funktionen von Vertex AI in Aktion zeigen. Wir werden uns sowohl auf die AutoML-Funktionen als auch auf die benutzerdefinierten Trainingsfunktionen konzentrieren.
+
+Die AutoML-Funktionen ermöglichen es uns, Modelle mit minimaler manueller Eingabe zu trainieren, während die benutzerdefinierten Trainingsfunktionen uns die Flexibilität geben, unsere eigenen Modelle zu erstellen und zu optimieren. Beide Ansätze haben ihre Vor- und Nachteile, und die Wahl hängt stark von den spezifischen Anforderungen und dem Kontext Ihres Projekts ab.
+
+Wir werden auch betrachten, wie wir diese Modelle bereitstellen und Vorhersagen generieren können. Bitte beachten Sie, dass die Bereitstellung von Modellen zusätzliche Kosten verursacht, solange das Modell online ist.
+### Praxisnahe Anwendungen des Tools
+
+Nachdem wir die Grundlagen von Vertex AI und Google Cloud-Diensten sowie die Einrichtung Ihres Google Cloud-Kontos für Vertex AI behandelt haben, werden wir uns nun auf die praktische Anwendung von Vertex AI konzentrieren. Vom Hochladen eines Datasets bis hin zur Konfiguration von Jupyterlab und Compute-Ressourcen in der Vertex AI Workbench, werden wir jeden Schritt ausführlich erläutern.
+
+Darüber hinaus werden wir auch die Schulung und Bereitstellung von AutoML- und benutzerdefinierten Modellen in Vertex AI behandeln. Am Ende dieses Abschnitts sollten Sie in der Lage sein, ein Modell in Vertex AI zu trainieren und bereitzustellen, sowie Anforderungen zur Generierung von Vorhersagen für eine Klassifizierungsaufgabe zu senden.
+
+Dieser Abschnitt wird mit praktischen Beispielen und Screenshots angereichert, um Ihnen ein besseres Verständnis und eine bessere Anwendung von Vertex AI zu ermöglichen. Es ist wichtig zu beachten, dass Vertex AI ein sehr umfangreiches Tool ist und diese Einführung nur die Oberfläche kratzt.
+
+Daher ist es empfehlenswert, dass Sie nach der Lektüre dieses Tutorials weiterhin Ressourcen und Kurse nutzen, um Ihre Kenntnisse zu vertiefen und sich weiter in die verschiedenen Funktionen und Möglichkeiten von Vertex AI einzuarbeiten.
+## Tipps und Best Practices
+
+Die Nutzung von Vertex AI erfordert ein gewisses Verständnis für die zugrunde liegenden Konzepte des maschinellen Lernens. Hier sind einige Tipps und Best Practices, um das Beste aus Vertex AI herauszuholen:
+
+1.
+
+**Verstehen Sie die Grundlagen des Maschinellen Lernens** - Bevor Sie Vertex AI nutzen, sollten Sie sicherstellen, dass Sie die Grundlagen des Maschinellen Lernens, einschließlich Konzepte wie Trainings- und Testdatensätze, Modellvalidierung und Overfitting, verstanden haben.
+
+2. **Optimieren Sie Ihre Daten** - Die Qualität Ihrer Daten ist entscheidend für die Leistungsfähigkeit Ihres Modells.
+
+Stellen Sie sicher, dass Ihre Daten sauber, relevant und gut strukturiert sind. Verwenden Sie Techniken wie Datenbereinigung und Feature Engineering, um Ihre Daten zu optimieren.
+
+3.
+
+**Wählen Sie das richtige Modell** - Vertex AI bietet eine Vielzahl von vortrainierten Modellen und AutoML-Funktionen. Wählen Sie das Modell, das am besten zu Ihrer Aufgabe passt.
+
+Experimentieren Sie mit verschiedenen Modellen und Parametern, um die besten Ergebnisse zu erzielen.
+
+4. **Überwachen Sie Ihre Modelle** - Nachdem Ihr Modell trainiert und bereitgestellt ist, sollten Sie es regelmäßig überwachen, um sicherzustellen, dass es wie erwartet funktioniert.
+
+Nutzen Sie die Monitoring-Funktionen von Vertex AI, um die Leistung Ihres Modells zu verfolgen und Anpassungen vorzunehmen, wenn nötig.
+
+5. **Nutzen Sie die Skalierbarkeit der Cloud** - Eine der größten Stärken von Vertex AI ist seine Fähigkeit, auf die Cloud zu skalieren.
+
+Nutzen Sie diese Fähigkeit, um große Datenmengen zu verarbeiten, komplexe Modelle zu trainieren und Vorhersagen in Echtzeit zu generieren.
+
+Durch die Beachtung dieser Best Practices können Sie sicherstellen, dass Sie das volle Potenzial von Vertex AI ausschöpfen und effektive, leistungsstarke Maschinenlernmodelle erstellen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Tipps und Best Practices](/static/images/Tipps_und_Best_Practices_1727698904_16-9.png)
+</div>
+
+### Häufige Fallstricke, die es zu vermeiden gilt
+
+Die Arbeit mit Vertex AI und Google Cloud kann manchmal eine Herausforderung sein, besonders für Anfänger. Hier sind einige häufige Fallstricke, die es zu vermeiden gilt:
+
+1.
+
+Unzureichende Kenntnisse über Google Cloud: Bevor Sie mit Vertex AI beginnen, ist es wichtig, sich mit den Grundlagen von Google Cloud vertraut zu machen. Dazu gehören die Erstellung und Verwaltung von Projekten, die Einrichtung von Abrechnungskonten und die Nutzung von Speicher- und Rechenressourcen.
+
+2.
+
+Kostenbewusstsein: Bei der Nutzung von Vertex AI und anderen Google Cloud-Diensten können Kosten anfallen, insbesondere wenn Sie mit großen Datenmengen arbeiten oder anspruchsvolle Modelle erstellen und bereitstellen. Es ist wichtig, sich der Kosten bewusst zu sein und die Nutzung Ihrer Ressourcen zu überwachen, um unerwartete Gebühren zu vermeiden.
+
+3.
+
+Fehlende Datenbereinigung und -vorbereitung: Maschinelles Lernen erfordert saubere und gut vorbereitete Daten. Stellen Sie sicher, dass Ihre Daten korrekt formatiert sind und keine fehlenden oder inkonsistenten Werte enthalten, bevor Sie sie in Vertex AI hochladen.
+
+4.
+
+Unzureichende Modellvalidierung: Es ist entscheidend, Ihre Modelle gründlich zu validieren, bevor Sie sie in die Produktion bringen. Nutzen Sie die Trainings- und Testdatensätze sowie Kreuzvalidierungstechniken, um die Genauigkeit Ihrer Modelle zu überprüfen.
+
+5.
+
+Unzureichendes Verständnis des maschinellen Lernzyklus: Ein effektiver Einsatz von Vertex AI erfordert ein gutes Verständnis der verschiedenen Phasen des maschinellen Lernzyklus, einschließlich Datenerfassung, Datenaufbereitung, Modelltraining, Modellvalidierung und Modellbereitstellung.
+### Empfohlene Praktiken für eine effektive Nutzung
+
+Für eine effektive Nutzung von Vertex AI empfehlen wir eine Reihe von Praktiken. Erstens, eine gründliche Kenntnis der Funktionen und des Potenzials von Vertex AI ist unerlässlich.
+
+Es handelt sich um eine umfangreiche Plattform, die viele Funktionen bietet, von der Erstellung von Speicherbuckets und Arbeitsbereichen über die Durchführung von Schulungsaufgaben bis hin zur Bereitstellung von Modellen. Die Kenntnis dieser Funktionen kann Ihnen helfen, die Plattform optimal zu nutzen.
+
+Zweitens, die Erstellung eines klaren und effizienten Arbeitsablaufs ist wichtig. Vertex AI bietet Tools zur Vereinfachung und Automatisierung von Aufgaben, aber es ist Ihre Aufgabe, diese Tools in einem effizienten Arbeitsablauf zu organisieren.
+
+Drittens, die Nutzung der umfangreichen Ressourcen und des Supports von Google kann Ihnen bei der Lösung von Problemen und der Verbesserung Ihrer Arbeit mit Vertex AI helfen. Dies kann beinhalten, die Dokumentation zu lesen, sich an die Support-Teams zu wenden oder zusätzliche Ressourcen wie Kurse und Tutorials zu nutzen.
+
+Viertens, es ist wichtig, die Kosten im Auge zu behalten. Vertex AI bietet viele leistungsstarke Funktionen, aber diese können auch hohe Kosten verursachen.
+
+Stellen Sie sicher, dass Sie ein Verständnis für die Kostenstruktur von Vertex AI haben und planen Sie Ihre Nutzung entsprechend, um unerwartete Kosten zu vermeiden. Schließlich, halten Sie sich mit den neuesten Updates und Änderungen von Vertex AI auf dem Laufenden.
+
+Wie bei allen Technologieplattformen kann sich Vertex AI im Laufe der Zeit weiterentwickeln und verbessern, und das Verständnis dieser Änderungen kann Ihnen helfen, die Plattform effektiv zu nutzen.
+## Fehlerbehebung
+
+Bei der Arbeit mit Vertex AI und anderen Google Cloud-Diensten können einige häufige Probleme auftreten. Hier sind einige Tipps zur Fehlerbehebung, die Ihnen helfen können.
+
+1.
+
+**Überprüfen Sie Ihre Berechtigungen**: Stellen Sie sicher, dass Sie über die notwendigen Berechtigungen zum Zugriff auf die Vertex AI-Dienste verfügen. Sie benötigen die Berechtigungen für 'Vertex AI Administrator', 'Storage Admin' und 'Service Account User'.
+
+2.
+
+**Prüfen Sie Ihre Quoten**: Google Cloud hat Quoten für verschiedene Ressourcen. Wenn Ihre Anforderung fehlschlägt, überprüfen Sie, ob Sie nicht Ihre Quoten überschritten haben.
+
+Sie können Ihre Quoten in der Google Cloud Console überprüfen und bei Bedarf erhöhen.
+
+3. **Überprüfen Sie Ihre Rechnungsdaten**: Stellen Sie sicher, dass Ihre Rechnungsdaten korrekt sind und Sie über genügend Guthaben verfügen, um die Dienste nutzen zu können.
+
+Einige Dienste wie Vertex AI erfordern eine gültige Rechnungsdaten.
+
+4. **Fehler in Ihrem Code**: Überprüfen Sie Ihren Code auf Fehler.
+
+Nutzen Sie die Fehlermeldungen und das Logging, um Probleme zu identifizieren und zu beheben. Google Cloud bietet auch detaillierte Dokumentation und Tutorials, die Ihnen bei der Fehlerbehebung helfen können.
+
+5.
+
+**Netzwerkprobleme**: Stellen Sie sicher, dass Ihr Netzwerk ordnungsgemäß funktioniert und Sie auf die Google Cloud-Dienste zugreifen können. Manchmal können Netzwerkprobleme oder Firewalleinstellungen den Zugriff auf diese Dienste verhindern.
+
+Wenn Sie weiterhin auf Probleme stoßen, können Sie sich an den Google Cloud-Support wenden oder Ihre Frage auf Stack Overflow stellen, wo eine aktive Gemeinschaft von Entwicklern Ihnen möglicherweise weiterhelfen kann.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Fehlerbehebung](/static/images/Fehlerbehebung_1727699036_16-9.png)
+</div>
+
+## Fazit
+
+Vertex AI ist eine umfangreiche Plattform mit vielen Funktionen. In diesem Tutorial haben wir gerade erst die Oberfläche gekratzt, aber wir haben die wichtigsten Bausteine der Plattform abgedeckt.
+
+Durch die Beherrschung der Erstellung von Speicherbereichen, Arbeitsbereichen und Schulungsaufträgen sind Sie gut gerüstet, um den Rest der Plattform zu erkunden. Wenn Sie mehr über Google Cloud-Dienste erfahren möchten, sehen Sie sich diese empfohlenen verwandten Ressourcen an.
+
+Ich bin ein Content-Ersteller für Data Science mit über 2 Jahren Erfahrung und einer der größten Anhängerschaften auf Medium. Ich schreibe gerne detaillierte Artikel über KI und ML mit einem Hauch von Sarkasmus, denn man muss etwas tun, um sie ein wenig weniger langweilig zu machen.
+
+Ich habe über 130 Artikel und einen DataCamp-Kurs produziert, ein weiterer ist in Arbeit. Mein Inhalt wurde von über 5 Millionen Paaren von Augen gesehen, 20k davon wurden Follower auf Medium und LinkedIn.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Fazit](/static/images/Fazit_1727699140_16-9.png)
+</div>
+
+### Zusammenfassung des Tutorials
+
+In diesem Tutorial haben wir uns intensiv mit der Vertex AI-Plattform von Google beschäftigt. Wir haben gelernt, wie man mit dieser Plattform beginnt und wie sie eine Vielzahl von Aufgaben im Lebenszyklus des Maschinellen Lernens (ML) abdeckt.
+
+Ein wesentliches Ergebnis des Tutorials ist ein bereitgestelltes Modell, das Anfragen senden und Vorhersagen für eine Klassifizierungsaufgabe generieren kann. Wir haben uns auch mit den Google Cloud Services auseinandergesetzt, die in Synchronisation mit Vertex AI arbeiten, um den Workflow des Maschinellen Lernens zu vereinheitlichen.
+
+Darüber hinaus haben wir das Einrichten der Google Cloud-Konsole für Vertex AI behandelt und sind auf die Kosten eingegangen, die bei der Verwendung von Vertex AI anfallen können. Ein weiterer wichtiger Abschnitt des Tutorials war das Hochladen eines Datensatzes in Vertex AI.
+
+Schließlich haben wir uns mit der Konfiguration von Jupyterlab und den Compute-Ressourcen in Vertex AI Workbench befasst, sowie dem Training und der Bereitstellung von AutoML- und benutzerdefinierten Modellen in Vertex AI. Trotz der Komplexität und Vielfalt der behandelten Themen bleibt dies nur die Spitze des Eisbergs von dem, was mit Vertex AI möglich ist.
+### Anregung zur weiteren Erkundung
+
+In diesem Abschnitt werden wir tiefer in die Welt des Maschinellen Lernens mit Google Cloud eintauchen. Nachdem wir uns in den vorherigen Abschnitten mit den Grundlagen von Vertex AI und Google Cloud Services vertraut gemacht haben, ist es nun an der Zeit, uns auf fortgeschrittene Themen zu konzentrieren.
+
+Wir werden uns mit der Nutzung von Vertex AI für komplexe maschinelle Lernprojekte beschäftigen und lernen, wie man Modelle optimiert und Verbesserungen vornimmt. Außerdem werden wir uns mit den Kostenmanagement-Tools von Google Cloud befassen, um die Kosten unserer ML-Projekte effektiv zu verwalten.
+
+Schließlich werden wir uns mit der Integration von Vertex AI in größere Dateninfrastrukturen und die Nutzung der Plattform in Kombination mit anderen Google Cloud Services beschäftigen. Unser Ziel ist es, Ihnen ein umfassendes Verständnis der Möglichkeiten von Vertex AI zu vermitteln und Sie dazu zu ermutigen, die Plattform in Ihren eigenen Projekten zu nutzen.
+## Zusätzliche Ressourcen
+
+Wir haben in diesem Tutorial viele Aspekte von Vertex AI behandelt, aber es gibt noch viele weitere Bereiche, die erforscht werden können. Google hat viele Ressourcen zur Verfügung gestellt, um weiter zu lernen und Ihre Fähigkeiten in Vertex AI zu vertiefen.
+
+Hier sind einige zusätzliche Ressourcen, die Sie nützlich finden könnten: 
+
+1. [Offizielle Vertex AI Dokumentation](https://cloud.google.com/vertex-ai/docs): Eine umfassende Ressource mit Anleitungen, Referenzen und Erklärungen zu allen Aspekten von Vertex AI.
+
+
+
+2. [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning): Hier finden Sie Artikel und Beiträge über die neuesten Entwicklungen und Funktionen in Vertex AI und anderen Google Cloud-Produkten.
+
+
+
+3. [Google Cloud Training](https://cloud.google.com/training/machinelearning-ai): Google bietet eine Vielzahl von Kursen und Zertifizierungen an, um Ihre Kenntnisse in Vertex AI und anderen Google Cloud-Produkten zu vertiefen.
+
+
+
+4. [Google Cloud Community](https://cloud.google.com/community): Treten Sie der Community bei und tauschen Sie sich mit anderen Entwicklern und Experten aus, um Fragen zu stellen und Tipps und Best Practices zu teilen.
+
+
+
+5. [Google Cloud's Vertex AI auf GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples): Hier finden Sie Codebeispiele und Tutorials, die Ihnen helfen, die Funktionalitäten von Vertex AI besser zu verstehen und zu nutzen.
+
+
+
+Vergessen Sie nicht, sich immer auf dem Laufenden zu halten. Google fügt regelmäßig neue Funktionen und Verbesserungen zu seinen Produkten hinzu, einschließlich Vertex AI.
+
+Bleiben Sie also immer auf dem neuesten Stand, um das Beste aus dieser leistungsfähigen Plattform herauszuholen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Zusätzliche Ressourcen](/static/images/Zusätzliche_Ressourcen_1727699258_16-9.png)
+</div>
+
+### Links zu verwandten Artikeln, Dokumentationen oder Foren
+
+In diesem Abschnitt finden Sie eine Reihe von Ressourcen, die Ihnen helfen, Ihr Verständnis und Ihre Fähigkeiten im Umgang mit Vertex AI und maschinellem Lernen im Allgemeinen zu vertiefen. Ob Sie neu in diesem Bereich sind oder bereits Erfahrung haben, diese Links bieten wertvolle Einblicke und Anleitungen.
+
+Von ausführlichen Anleitungen für Anfänger über spezialisierte Foren bis hin zu umfassenden Dokumentationen - diese Ressourcen sind unverzichtbar für jeden, der sich mit Machine Learning und Google Cloud auseinandersetzt.
+
+1. 'What is AI?
+
+A Quick-Start Guide For Beginners': Eine einführende Anleitung zu künstlicher Intelligenz, ideal für Anfänger in diesem Bereich.
+
+2. 'How to Learn AI From Scratch in 2024: A Complete Guide From the Experts': Ein umfassender Leitfaden für diejenigen, die in die Welt der künstlichen Intelligenz eintauchen möchten.
+
+3.
+
+'How to Become an AI Engineer': Eine Anleitung für diejenigen, die eine Karriere im Bereich KI-Engineering anstreben.
+
+4. 'OpenAI Assistants API Tutorial': Ein praktisches Tutorial zur Verwendung der OpenAI Assistants API.
+
+5.
+
+'A Beginner's Guide to The OpenAI API: Hands-On Tutorial and Best Practices': Ein weiterer hilfreicher Leitfaden zur Nutzung der OpenAI API.
+
+6. 'TensorFlow Tutorial For Beginners': Ein grundlegendes Tutorial für diejenigen, die mit TensorFlow beginnen möchten, einem weit verbreiteten Framework für maschinelles Lernen.
+
+Vergessen Sie nicht, auch die offizielle Google Cloud Dokumentation zu konsultieren, die eine Fülle von Informationen und Anleitungen bietet.
