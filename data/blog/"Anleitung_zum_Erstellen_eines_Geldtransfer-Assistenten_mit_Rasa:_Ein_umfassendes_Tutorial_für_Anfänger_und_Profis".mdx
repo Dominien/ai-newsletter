@@ -1,0 +1,293 @@
+---
+title: '"Anleitung zum Erstellen eines Geldtransfer-Assistenten mit Rasa: Ein umfassendes Tutorial für Anfänger und Profis"'
+date: '2024-09-30'
+tags: ['KI', 'SEO', 'Generative AI', 'Tutorial', 'Automatisierung', 'AI']
+draft: false
+images: ['/static/images/"Anleitung_zum_Erstellen_eines_Geldtransfer-Assistenten_mit_Rasa:_Ein_umfassendes_Tutorial_für_Anfänger_und_Profis"_1727700401_main.png']
+summary: 'Dieses Tutorial leitet Anfänger und Profis durch die Erstellung eines Geldtransfer-Assistenten mit Rasa.'
+---
+
+## Einführung
+
+In diesem Tutorial erstellen wir einen Geldtransfer-Assistenten mit Rasa, einer Open-Source-Framework für maschinelles Lernen. Dieses umfassende Tutorial ist sowohl für Anfänger als auch für Profis konzipiert.
+
+Sie benötigen keine vorherige Kenntnisse über Rasa oder Chatbots. Die Techniken, die Sie in diesem Tutorial lernen, sind grundlegend für den Bau jedes Rasa-Assistenten und werden Ihnen ein tiefes Verständnis von Rasa vermitteln.
+
+In diesem Tutorial erstellen Sie einen von LLM (Language Model) betriebenen Assistenten, der einen Geldtransfer abschließen kann, dabei zuverlässig Ihre Geschäftslogik ausführt und gleichzeitig eine flüssige Konversation ermöglicht. Ihr Assistent wird in der Lage sein, Konversationen wie 'Ich möchte Geld senden' zu 'An wen möchten Sie Geld senden?' zu 'Wie viel möchten Sie senden?' und schließlich die Bestätigung und Ausführung des Geldtransfers zu behandeln.
+
+Dieses Tutorial leitet Sie durch den gesamten Prozess, einschließlich der Einrichtung, des Verständnisses Ihrer Geldtransfer-Flows, der Sammlung von Informationen in Slots und der Integration von API-Aufrufen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Einführung](/static/images/Einführung_1727699444_16-9.png)
+</div>
+
+### Überblick über das Thema und seine Bedeutung
+
+In diesem Tutorial werden wir einen Geldtransfer-Assistenten mit Rasa erstellen. Dieser Assistent wird eine Schlüsselrolle in der digitalen Transformation von Banken und Finanzinstituten spielen, da er es ermöglicht, Geldtransfers auf einfache, schnelle und sichere Weise durchzuführen.
+
+Mit zunehmender Abhängigkeit von Technologie in unserem täglichen Leben gewinnt die Entwicklung solcher Assistenten an Bedeutung. Die Bedeutung dieses Themas spiegelt sich auch in der Tatsache wider, dass immer mehr Menschen den Komfort solcher Technologien genießen möchten, anstatt manuell zu Banken zu gehen und lange auf die Abwicklung ihrer Transaktionen zu warten.
+
+Durch die Verwendung von Rasa, einer Open-Source-KI-Software, können wir einen Assistenten erstellen, der menschenähnliche Gespräche führen, die Anforderungen der Benutzer verstehen und entsprechend handeln kann. Dieses Tutorial ist sowohl für Anfänger als auch für Profis geeignet, da es die grundlegenden Techniken zum Aufbau eines Rasa-Assistenten abdeckt und gleichzeitig wertvolle Einblicke und fortgeschrittene Techniken für erfahrene Entwickler bietet.
+### Ziele des Tutorials
+
+In diesem umfassenden Tutorial lernen Sie, wie Sie einen Geldtransfer-Assistenten mit Rasa erstellen können. Ziel ist es, Ihnen die Fähigkeiten zu vermitteln, die Sie benötigen, um einen Chatbot zu erstellen, der zuverlässig Ihre Geschäftslogik ausführt und gleichzeitig ein flüssiges Gespräch mit dem Benutzer ermöglicht.
+
+Unabhängig von Ihrem bisherigen Wissen über Rasa oder Chatbots, werden Sie die grundlegenden Techniken erlernen, die für den Aufbau eines Rasa-Assistenten erforderlich sind. Nach Abschluss dieses Tutorials werden Sie in der Lage sein, einen Assistenten zu erstellen, der Geldtransfers durchführen kann und dabei folgende Konversationen verarbeiten kann: [Benutzer: Ich möchte Geld senden, Bot: An wen möchten Sie Geld senden?, Benutzer: An Jen, Bot: Wie viel möchten Sie senden?, Benutzer: 50$, Bot: Bitte bestätigen Sie: Sie möchten 50,0$ an Jen überweisen?, Benutzer: Ja, Bot: Erledigt.
+
+50,0$ wurden an Jen gesendet. Bot: Kann ich Ihnen sonst noch helfen?].
+
+Darüber hinaus werden Sie lernen, wie Sie den Assistenten testen und optimieren können, um die bestmögliche Benutzererfahrung zu gewährleisten.
+## Voraussetzungen
+
+Bevor Sie mit diesem Tutorial beginnen, benötigen Sie einige grundlegende Voraussetzungen. Erstens sollten Sie eine grundlegende Kenntnis von Python haben, da Rasa eine Python-Bibliothek ist.
+
+Zweitens sollten Sie eine stabile Internetverbindung haben, da Sie während des Tutorials auf Online-Ressourcen und -Dienste zugreifen müssen. Drittens benötigen Sie ein OpenAI-API-Schlüssel und Rasa Pro-Lizenz, die Sie in den Umgebungsvariablen einstellen müssen.
+
+Sie können diesen Schlüssel durch eine erfolgreiche Zahlung von 5 $ oder mehr an OpenAI erwerben. Schließlich müssen Sie Rasa lokal auf Ihrem Computer installiert haben.
+
+Wenn Sie ein neuer Benutzer sind, empfehlen wir Ihnen, in einem GitHub-Codespace zu beginnen, da dies Ihnen eine Arbeitsumgebung bietet, in der Sie Rasa Pro in weniger als einer Minute erkunden können.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Voraussetzungen](/static/images/Voraussetzungen_1727699553_16-9.png)
+</div>
+
+### Erforderliches Wissen oder Fähigkeiten
+
+Dieses Tutorial richtet sich sowohl an Anfänger als auch an erfahrene Entwickler, die daran interessiert sind, einen Geldtransfer-Assistenten mit Rasa zu erstellen. Es wird kein vorheriges Wissen über Rasa oder Chatbots vorausgesetzt, da dieses Tutorial die Grundlagen der Erstellung eines Rasa-Assistenten von Grund auf behandelt.
+
+Die Techniken, die Sie in diesem Tutorial erlernen, sind grundlegend für den Aufbau jedes Rasa-Assistenten und das Verständnis dieser Techniken wird Sie weit voranbringen auf dem Weg zur Beherrschung von Rasa. Sie werden lernen, wie man einen auf LLM (Language Model) basierten Assistenten erstellt, der in der Lage ist, einen Geldtransfer durchzuführen und dabei die Geschäftslogik zuverlässig auszuführen, während er gleichzeitig eine flüssige Konversation ermöglicht.
+
+Das Tutorial behandelt auch die Einbindung von API-Aufrufen und die Erstellung von benutzerdefinierten Aktionen innerhalb des Flusses. Darüber hinaus werden Sie lernen, wie Sie Informationen in Slots sammeln und speichern und wie Sie diese Informationen verwenden können, um verzweigte Logik zu erstellen.
+### Notwendige Tools oder Softwareinstallationen
+
+Um dieses Tutorial erfolgreich durchführen zu können und einen Geldtransfer-Assistenten mithilfe von Rasa zu erstellen, benötigen Sie einige spezifische Tools und Softwareinstallationen. Zunächst benötigen Sie Rasa, eine Open-Source-Framework für Chatbots und konversationelle KI.
+
+Stellen Sie sicher, dass Sie Rasa Version 3.8.0 oder höher installiert haben, da dieses Tutorial diese Version oder höher erfordert. Sie können Rasa entweder lokal auf Ihrem Computer installieren oder in einem GitHub-Codespace verwenden.
+
+Für neue Benutzer wird empfohlen, einen GitHub-Codespace zu verwenden, da dieser eine Arbeitsumgebung bereitstellt, in der Sie Rasa Pro in weniger als einer Minute erkunden können. Darüber hinaus benötigen Sie den OpenAI API-Schlüssel und die Rasa Pro-Lizenz, die als Umgebungsvariablen festgelegt werden müssen.
+
+Wenn Sie Rasa Pro lokal installieren, ersetzen Sie 'your-api-key' und 'your-rasa-pro-license-key' durch die tatsächlichen Schlüssel. Beachten Sie, dass Sie um Zugang zu GPT-4 von OpenAI zu erhalten, eine erfolgreiche Zahlung von 5 $ oder mehr leisten müssen.
+
+Schließlich benötigen Sie einen Code-Editor oder eine integrierte Entwicklungsumgebung (IDE), um den Code für Ihren Geldtransfer-Assistenten zu schreiben und zu bearbeiten. Dieses Tutorial bezieht sich hauptsächlich auf die Verwendung der folgenden Dateien: 'data/flows.yml' und 'domain.yml', daher sollten Sie mit diesen Dateiformaten vertraut sein.
+## Erste Schritte
+
+In diesem Tutorial lernen Sie, wie Sie einen Assistenten für Geldtransfers mit Rasa erstellen können. Dieser Leitfaden setzt kein vorhandenes Wissen über Rasa oder Chatbots voraus.
+
+Die Techniken, die Sie in diesem Tutorial erlernen, sind grundlegend für den Aufbau eines Rasa-Assistenten und das Verständnis wird Ihnen weit auf dem Weg zur Beherrschung von Rasa helfen. Sie werden einen von LLM angetriebenen Assistenten erstellen, der einen Geldtransfer durchführen kann und dabei Ihre Geschäftslogik zuverlässig ausführt und gleichzeitig eine flüssige Konversation ermöglicht.
+
+Ihr Assistent wird in der Lage sein, folgende Gespräche zu führen: Benutzer: Ich möchte Geld senden. Bot: An wen möchten Sie Geld senden?
+
+Benutzer: an Jen. Bot: Wie viel möchten Sie senden?
+
+Benutzer: 50$. Bot: Bitte bestätigen Sie: Sie möchten 50$ an Jen überweisen?
+
+Benutzer: Ja. Bot: Alles erledigt.
+
+50$ wurden an Jen gesendet. Bot: Kann ich Ihnen sonst noch weiterhelfen?!
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Erste Schritte](/static/images/Erste_Schritte_1727699664_16-9.png)
+</div>
+
+### Schritt-für-Schritt-Anleitung für die initiale Einrichtung
+
+In dieser Schritt-für-Schritt-Anleitung lernen Sie, wie Sie den Rasa Geldtransfer-Assistenten initial einrichten können. Starten Sie mit der Installation von Rasa auf Ihrem Computer.
+
+Anschließend konfigurieren Sie die erforderlichen Umgebungsvariablen und API-Schlüssel. Sobald die Voraussetzungen erfüllt sind, können Sie ein neues Rasa-Projekt erstellen und anfangen, Ihren Geldtransfer-Assistenten zu bauen.
+
+Im Rahmen dieses Prozesses werden Sie die grundlegenden Elemente von Rasa kennenlernen, einschließlich der Verwendung von Flows, Sammeln von Informationen in Slots und Erstellen von benutzerdefinierten Aktionen. Sie werden auch lernen, wie Sie Ihr Modell testen und Fehler beheben können, und schließlich, wie Sie Ihr Modell in einer produktiven Umgebung bereitstellen.
+
+Dieses umfassende Tutorial richtet sich sowohl an Anfänger als auch an erfahrene Rasa-Nutzer und wird Ihnen dabei helfen, die Fähigkeiten zu erwerben, um einen leistungsstarken und zuverlässigen Geldtransfer-Assistenten zu entwickeln.
+### Erstellung eines Kontos oder Zugriff auf das Tool
+
+Bevor Sie mit der Erstellung Ihres Geldtransfer-Assistenten beginnen können, müssen Sie sich zuerst bei Rasa registrieren oder sich anmelden, wenn Sie bereits ein Konto haben. Rasa ist ein Open-Source-Framework, das es Entwicklern ermöglicht, KI-basierte Chatbots und Sprachassistenten zu erstellen.
+
+Die Anmeldung ist einfach und unkompliziert. Sie müssen nur Ihre E-Mail-Adresse und ein sicheres Passwort angeben.
+
+Nach erfolgreicher Anmeldung erhalten Sie Zugang zum Rasa-Dashboard. Von hier aus können Sie ein neues Projekt erstellen und mit der Erstellung Ihres Geldtransfer-Assistenten beginnen.
+
+Stellen Sie sicher, dass Sie die aktuellste Version von Rasa (>= 3.8.0) verwenden, um die in diesem Tutorial beschriebenen Funktionen nutzen zu können.
+### Übersicht über die Benutzeroberfläche
+
+In diesem Abschnitt geben wir Ihnen eine umfassende Übersicht über die Benutzeroberfläche von Rasa, die Sie beim Erstellen eines Geldtransfer-Assistenten verwenden werden. Die Benutzeroberfläche von Rasa ist intuitiv und benutzerfreundlich gestaltet, um sowohl Anfängern als auch fortgeschrittenen Benutzern eine schnelle und effiziente Entwicklung zu ermöglichen.
+
+Sie besteht aus verschiedenen Komponenten wie dem Dashboard, dem Dialogflow-Editor, dem Intent- und Entity-Manager und dem Trainingsdateneditor. Jede dieser Komponenten spielt eine entscheidende Rolle beim Erstellen und Verwalten Ihres Chatbot-Assistenten.
+
+Mit Rasa können Sie komplexe und personalisierte Gesprächsabläufe erstellen, die Ihren Geschäftsanforderungen entsprechen. Sie können auch Ihre eigenen benutzerdefinierten Aktionen und API-Integrationen hinzufügen, um die Fähigkeiten Ihres Assistenten zu erweitern.
+
+In den folgenden Abschnitten dieses Tutorials werden wir uns genauer ansehen, wie Sie diese Funktionen nutzen können, um einen funktionsfähigen Geldtransfer-Assistenten zu erstellen.
+## Hauptfunktionen
+
+In diesem Abschnitt des Tutorials lernen Sie, wie Sie einen Geldtransfer-Assistenten mit Rasa erstellen. Dieser Assistent ist so konzipiert, dass er in der Lage ist, reibungslose Konversationen zu führen und gleichzeitig Ihre Geschäftslogik zuverlässig auszuführen.
+
+Einige der Hauptfunktionen des Assistenten sind die Fähigkeit, Anfragen zu erkennen, wie zum Beispiel den Wunsch des Benutzers, Geld zu senden, die Menge zu spezifizieren und den Empfänger zu bestätigen. Der Assistent kann auch weitere Hilfestellungen anbieten, sobald die Transaktion abgeschlossen ist.
+
+In diesem Tutorial werden Sie sowohl mit den Grundlagen von Rasa vertraut gemacht, als auch mit fortgeschritteneren Konzepten wie der Integration von API-Aufrufen und der Erstellung benutzerdefinierter Aktionen. Ob Sie ein Anfänger oder ein erfahrener Profi sind, dieses Tutorial bietet Ihnen umfassende Anleitungen und praktische Übungen, um Ihre Fähigkeiten in der Erstellung von Rasa-Assistenten zu verbessern.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Hauptfunktionen](/static/images/Hauptfunktionen_1727699808_16-9.png)
+</div>
+
+### Detaillierte Erklärungen der Hauptfunktionen
+
+Die Hauptfunktion des Geldtransfer-Assistenten, den Sie mit Rasa erstellen, ist die Durchführung einer Geldüberweisung. Der Assistent kann einfache Konversationen mit Benutzern führen, um die nötigen Informationen für eine Überweisung zu sammeln.
+
+Zunächst fragt der Assistent, an wen das Geld geschickt werden soll. Anschließend fragt er nach dem Überweisungsbetrag.
+
+Sobald diese Informationen gesammelt wurden, bestätigt der Assistent die Angaben mit dem Benutzer und führt die Überweisung aus. Der Assistent kann auch weitere Funktionen ausführen, wie z.B.
+
+die Bestätigung, dass die Überweisung erfolgreich war. Darüber hinaus kann der Assistent mit dem Benutzer interagieren und nach weiteren Anforderungen fragen.
+
+Es ist wichtig zu beachten, dass dieser Assistent auf der Rasa-Plattform aufgebaut ist, die eine Vielzahl von Funktionen zur Erstellung von Chatbots bietet. Diese Funktionen umfassen unter anderem die Fähigkeit, Konversationen zu führen, Benutzerinformationen zu sammeln und Geschäftslogik auszuführen.
+### Funktion 1: Beschreibung und Verwendung
+
+In diesem Abschnitt des Tutorials lernen Sie die erste Funktion des Geldtransfer-Assistenten kennen, den wir mit Rasa erstellen. Diese Funktion ist die grundlegende Operation des Geldtransfers.
+
+Sie wird aktiviert, wenn der Benutzer den Wunsch äußert, Geld zu senden. Der Assistent fragt dann nach dem Empfänger und dem Betrag, den der Benutzer senden möchte.
+
+Danach fragt der Assistent zur Bestätigung erneut nach, ob der Benutzer den genannten Betrag an den genannten Empfänger senden möchte. Bei Bestätigung des Benutzers führt der Assistent den Transfer durch und informiert anschließend den Benutzer, dass der Transfer erfolgreich durchgeführt wurde.
+
+Diese Funktion ist ein Kernstück des Assistenten und nutzt die Fähigkeiten von Rasa, um eine reibungslose und natürliche Konversation mit dem Benutzer zu ermöglichen, während gleichzeitig die Geschäftslogik zuverlässig ausgeführt wird. Bei der Erstellung dieses Artikels wurde das Augenmerk auf die Suchmaschinenoptimierung gelegt, um eine hohe Sichtbarkeit und Reichweite zu gewährleisten.
+### Funktion 2: Beschreibung und Verwendung
+
+In diesem Abschnitt werden wir uns auf eine spezifische Funktion des Rasa-Geldtransfer-Assistenten konzentrieren und ihre Bedeutung und Verwendung im Gesamtzusammenhang verstehen. Die Funktion, die wir betrachten werden, ist die 'action_check_sufficient_funds'-Funktion.
+
+Diese Funktion ist ein essentieller Bestandteil des Geldtransfer-Assistenten, da sie überprüft, ob der Benutzer über ausreichende Mittel verfügt, um den gewünschten Geldtransfer durchzuführen. Wenn der Benutzer nicht über ausreichende Mittel verfügt, informiert der Assistent den Benutzer und stoppt den Transferprozess.
+
+Wenn der Benutzer ausreichende Mittel hat, geht der Assistent zum nächsten Schritt über und fragt nach einer Bestätigung für den Transfer. Die Funktion 'action_check_sufficient_funds' ist ein Beispiel für eine kundenspezifische Aktion im Rasa-Geldtransfer-Assistenten.
+
+Kundenspezifische Aktionen sind leistungsstarke Werkzeuge in Rasa, die es dem Assistenten ermöglichen, komplexe Aufgaben auszuführen, die über die einfache Textkommunikation hinausgehen. Sie sind ein wesentlicher Bestandteil jedes fortgeschrittenen Rasa-Assistenten.
+### Funktion 3: Beschreibung und Verwendung
+
+In diesem Abschnitt werden wir die dritte und letzte Funktion unseres Rasa-basierten Geldtransfer-Assistenten besprechen: die Integration einer API zur Überprüfung der ausreichenden Geldmittel des Benutzers. Dies ist ein kritischer Schritt in unserem Prozess, da er sicherstellt, dass die Benutzer genügend Geld auf ihrem Konto haben, bevor sie eine Überweisung durchführen.
+
+Die Funktion wird durch eine benutzerdefinierte Aktion realisiert, die als 'action_check_sufficient_funds' bezeichnet wird. Diese Aktion wird definiert in der 'actions.py'-Datei und wird aufgerufen, wenn der Benutzer eine Überweisung durchführen möchte.
+
+Die Aktion liest den Betrag des Geldtransfers aus einem Slot, führt eine API-Anfrage durch, um den Kontostand des Benutzers zu prüfen, und gibt dann ein Ereignis 'SlotSet' zurück, um den Slot 'has_sufficient_funds' zu aktualisieren. Abhängig vom Ergebnis dieser Überprüfung wird der Geldtransfer entweder fortgesetzt oder abgebrochen, und der Benutzer wird entsprechend informiert.
+
+Durch die Integration dieser Funktion in unseren Geldtransfer-Assistenten können wir sicherstellen, dass die Überweisungen reibungslos und effizient durchgeführt werden, während gleichzeitig die Zufriedenheit und das Vertrauen unserer Benutzer gewährleistet wird.
+## Praktische Beispiele
+
+In diesem Abschnitt des Tutorials werden wir uns konkrete Beispiele ansehen, um das Verständnis zu vertiefen. Wir werden eine Situation simulieren, in der ein Benutzer Geld an eine andere Person senden möchte.
+
+Wir werden die Interaktion zwischen dem Benutzer und dem Chatbot in verschiedenen Szenarien durchspielen, um zu verstehen, wie der Chatbot auf verschiedene Anfragen reagiert und wie er mit unerwarteten Antworten umgeht. Dabei werden wir uns die zugrundeliegende Logik des Chatbots und die verschiedenen Techniken, die er nutzt, genauer ansehen.
+
+Dies wird uns eine solide Grundlage für das Verständnis von Rasa und der Erstellung von Chatbots mit Rasa bieten. Im Laufe dieses Abschnitts werden wir die verschiedenen Arten von Schritten in einem Rasa-Flow, wie Sammel-, Aktions- und Verzweigungslogikschritte, kennenlernen.
+
+Wir werden auch sehen, wie wir benutzerdefinierte Aktionen erstellen und einbinden können, um bestimmte Funktionen wie API-Aufrufe auszuführen. Am Ende dieses Abschnitts sollten Sie in der Lage sein, einen eigenen Geldtransfer-Assistenten mit Rasa zu erstellen und zu testen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Praktische Beispiele](/static/images/Praktische_Beispiele_1727699955_16-9.png)
+</div>
+
+### Codebeispiele, die die Funktionen in Aktion zeigen
+
+In diesem Abschnitt werden wir uns einige Codebeispiele ansehen, die die Funktionen unseres Geldtransfer-Assistenten in Aktion zeigen. Wir werden sehen, wie wir Rasa nutzen, um eine KI-gestützte Chatbot-Lösung zu erstellen, die den Anforderungen der Nutzer entspricht und gleichzeitig ein hohes Maß an Benutzerfreundlichkeit bietet.
+
+Wir werden die grundlegenden Aspekte der Rasa-Plattform durchgehen, wie z.B. die Verwendung von 'Intents', 'Entities', 'Actions' und 'Slots', um eine interaktive Konversation zu erstellen.
+
+Diese Beispiele werden Ihnen helfen, das Konzept hinter der Rasa-Plattform besser zu verstehen und wie Sie sie effektiv nutzen können, um Ihre eigenen Chatbot-Lösungen zu erstellen. Darüber hinaus werden wir auch diskutieren, wie wir diese Funktionen nutzen können, um SEO-optimierte Inhalte zu erstellen, die unsere Sichtbarkeit in Suchmaschinen erhöhen und mehr Nutzer auf unsere Lösungen aufmerksam machen können.
+### Praxisnahe Anwendungen des Tools
+
+Das Tool, das Sie in diesem Tutorial erstellen, hat viele praktische Anwendungen. Es kann in einer Vielzahl von Branchen eingesetzt werden, in denen Geldtransaktionen häufig vorkommen.
+
+Dazu gehören Banken, Finanzinstitutionen, E-Commerce-Websites und sogar Peer-to-Peer-Zahlungsapps. Die Fähigkeit, Geldtransfers durch natürliche Konversation zu erleichtern, kann die Benutzererfahrung erheblich verbessern.
+
+Es kann Benutzern helfen, Geldtransfers schnell und einfach durchzuführen, ohne durch komplexe Menüs und Optionen navigieren zu müssen. Darüber hinaus kann es dazu beitragen, menschliche Fehler zu reduzieren, indem es die Benutzer dazu auffordert, die Details ihrer Transaktion zu bestätigen, bevor sie ausgeführt wird.
+
+Darüber hinaus ist das Tool, das Sie erstellen, flexibel und anpassbar. Mit Rasa können Sie weitere Funktionen hinzufügen, wie z.B.
+
+die Unterstützung von mehreren Währungen oder die Integration in andere Dienste für zusätzliche Funktionalitäten.
+## Tipps und Best Practices
+
+Im Kontext dieses Tutorials zum Erstellen eines Geldtransfer-Assistenten mit Rasa gibt es einige Tipps und Best Practices, die sowohl Anfängern als auch Profis helfen können. Erstens ist es wichtig, ein gutes Verständnis der Grundlagen von Rasa zu haben.
+
+Dieses Tutorial geht davon aus, dass Sie keine Vorkenntnisse haben, und führt Sie durch die grundlegenden Techniken, die für den Bau eines Rasa-Assistenten erforderlich sind. Zweitens ist es wichtig, eine klare Vorstellung davon zu haben, was Sie bauen.
+
+In diesem Tutorial erstellen Sie einen LLM-gesteuerten Assistenten, der in der Lage ist, einen Geldtransfer durchzuführen, während er eine flüssige Konversation ermöglicht. Drittens ist es wichtig, den Prinzipien der SEO-Optimierung zu folgen, um sicherzustellen, dass Ihr Tutorial von Suchmaschinen gefunden und von den richtigen Personen gelesen wird.
+
+In Bezug auf die SEO-Optimierung sollten Sie sicherstellen, dass Ihr Text gut strukturiert ist, relevante Keywords enthält und eine angemessene Länge aufweist. Schließlich sollten Sie immer die neueste Version von Rasa verwenden, um sicherzustellen, dass Sie von den neuesten Funktionen und Verbesserungen profitieren können.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Tipps und Best Practices](/static/images/Tipps_und_Best_Practices_1727700068_16-9.png)
+</div>
+
+### Häufige Fallstricke, die es zu vermeiden gilt
+
+Beim Erstellen eines Geldtransfer-Assistenten mit Rasa gibt es einige häufige Fallstricke, die Sie vermeiden sollten. Einer der häufigsten Fehler ist die fehlerhafte Verwendung von Slots.
+
+Slots sind Variablen, die Ihr Assistent während einer Unterhaltung lesen und schreiben kann. Es ist wichtig, sicherzustellen, dass Sie Slots korrekt definieren und verwenden, um Informationen zu speichern, die Benutzer während der Konversation bereitstellen.
+
+Ein weiterer häufiger Fehler ist die Nichtbeachtung des API-Aufrufs. Beim Integrieren eines API-Aufrufs in Ihren Assistenten ist es wichtig, sicherzustellen, dass die Logik Ihres Flusses beide Fälle berücksichtigt, in denen der Benutzer ausreichende oder unzureichende Mittel hat.
+
+Schließlich ist es wichtig, darauf zu achten, dass Sie Ihre benutzerdefinierten Aktionen korrekt definieren und verwenden. Benutzerdefinierte Aktionen beginnen mit 'action_', und Sie müssen sicherstellen, dass Sie diese richtig in Ihre Flusslogik integrieren.
+## Fehlerbehebung
+
+Selbst mit einer sorgfältigen Planung und Implementierung können Fehler auftreten, die eine weitere Verbesserung und Anpassung Ihres Geldtransfer-Assistenten erfordern. Beispielsweise könnte Ihr Assistent Schwierigkeiten haben, bestimmte Benutzereingaben zu verstehen oder korrekt auf sie zu reagieren.
+
+In solchen Fällen ist es wichtig, den Fehler zu identifizieren und geeignete Lösungsstrategien zu entwickeln. Dazu gehört die Überprüfung des Trainingsdatensatzes und der Dialogmanagement-Konfiguration, die Überprüfung der Logdateien für Fehler oder unerwartete Verhaltensweisen und die Durchführung von Tests, um sicherzustellen, dass alle Komponenten des Assistenten richtig funktionieren.
+
+Denken Sie daran, dass die Fehlerbehebung ein iterativer Prozess ist und es möglicherweise mehrere Anläufe erfordert, um ein Problem vollständig zu beheben. Schließlich ist es auch wichtig, die Benutzererfahrung ständig zu überwachen und zu bewerten, um sicherzustellen, dass Ihr Assistent effektiv und effizient funktioniert und den Benutzern hilft, Geldtransfers problemlos durchzuführen.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Fehlerbehebung](/static/images/Fehlerbehebung_1727700176_16-9.png)
+</div>
+
+### Häufig auftretende Probleme und Lösungen
+
+Beim Erstellen eines Geldtransfer-Assistenten mit Rasa können verschiedene Problemstellungen auftreten. Ein häufiges Problem ist die korrekte Konfiguration der API-Schlüssel.
+
+Stellen Sie sicher, dass Sie beim Setup Ihren OpenAI API-Schlüssel und Ihre Rasa Pro-Lizenz in den Umgebungsvariablen festlegen. Ersetzen Sie 'your-api-key' und 'your-rasa-pro-license-key' durch die tatsächlichen Schlüssel.
+
+Ein weiteres Problem könnte sein, dass der Assistent nicht in der Lage ist, die Benutzeranfrage korrekt zu verarbeiten. Überprüfen Sie in diesem Fall die Definition Ihrer Flows und Slots in der 'data/flows.yml'- und der 'domain.yml'-Datei.
+
+Stellen Sie sicher, dass die erwarteten Benutzerantworten korrekt definiert sind und dass die gesammelten Informationen in den richtigen Slots gespeichert werden. Falls Sie auf ein Problem stoßen, das Sie nicht lösen können, wenden Sie sich an die Rasa-Community oder den Rasa-Support für weitere Unterstützung.
+## Fazit
+
+Das Erstellen eines Geldtransfer-Assistenten mit Rasa kann eine lohnende Aufgabe sein, unabhängig davon, ob Sie ein Anfänger oder ein erfahrener Profi sind. Dieses umfangreiche Tutorial hat Sie durch die grundlegenden Techniken geführt, die Sie zum Aufbau eines Rasa-Assistenten benötigen.
+
+Sie haben gelernt, wie Sie einen LLM-gestützten Assistenten bauen können, der Geldtransfers zuverlässig ausführt und gleichzeitig eine flüssige Konversation ermöglicht. Dabei haben Sie sich mit wichtigen Konzepten wie dem Sammeln von Informationen in Slots, dem Erstellen von Aktionsschritten und dem Einbinden von API-Aufrufen auseinandergesetzt.
+
+Mit diesem neu erworbenen Wissen sind Sie nun in der Lage, Rasa effektiv zu nutzen, um Ihre eigenen Chatbot-Projekte zu erstellen und zu optimieren.
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Fazit](/static/images/Fazit_1727700250_16-9.png)
+</div>
+
+### Zusammenfassung des Tutorials
+
+In diesem Tutorial erfahren Sie, wie Sie einen Geldtransfer-Assistenten mit Rasa erstellen. Dieser umfassende Leitfaden ist für Anfänger und Profis gleichermaßen geeignet und setzt kein vorhandenes Wissen über Rasa oder Chatbots voraus.
+
+Sie erstellen einen von LLM angetriebenen Assistenten, der einen Geldtransfer durchführen kann, und lernen, wie Sie Ihren Geschäftslogik zuverlässig ausführen und gleichzeitig eine flüssige Konversation ermöglichen können. Das Tutorial führt Sie durch die Einrichtung, die wichtigsten Dateien, das Testen und Verstehen Ihres Geldtransfer-Flusses, das Sammeln von Informationen in Slots, Aktionsschritte, Verzweigungslogik und die Integration eines API-Aufrufs.
+
+Am Ende dieses Tutorials werden Sie wertvolle Kenntnisse und Erfahrungen im Umgang mit Rasa erworben haben.
+### Anregung zur weiteren Erkundung
+
+Nachdem Sie nun die Grundlagen zum Erstellen eines Geldtransfer-Assistenten mit Rasa gelernt haben, gibt es viele Möglichkeiten, Ihre Kenntnisse zu vertiefen und zu erweitern. Sie könnten zum Beispiel darüber nachdenken, wie Sie zusätzliche Funktionen in Ihren Assistenten integrieren können, wie z.B.
+
+die Verwaltung von mehreren Bankkonten oder die Einbeziehung von Währungsumrechnungsraten für internationale Überweisungen. Es wäre auch interessant, zu erforschen, wie Sie eine Verbindung zu einer echten Bank-API herstellen könnten, um tatsächliche Transaktionen durchzuführen.
+
+Darüber hinaus könnten Sie sich mit fortschrittlicheren Aspekten der Rasa-Technologie beschäftigen, wie z.B. der Implementierung von kundenspezifischen Aktionen oder der Verwendung von Machine Learning-Modellen zur Verbesserung der Konversationsfähigkeiten Ihres Assistenten.
+
+Unabhängig davon, welchen Weg Sie einschlagen, das Wichtigste ist, dass Sie weiterhin lernen und experimentieren.
+## Zusätzliche Ressourcen
+
+Um Ihr Verständnis für die Entwicklung eines Geldtransfer-Assistenten mit Rasa zu vertiefen, empfehlen wir Ihnen, sich mit den folgenden Ressourcen vertraut zu machen. Die Rasa-Dokumentation ist ein umfassender Leitfaden, der sowohl konzeptionelle Erklärungen als auch praktische Anleitungen zu allen Aspekten der Arbeit mit Rasa bietet.
+
+Der Rasa Blog bietet wertvolle Einblicke und Anleitungen von den Entwicklern von Rasa und der Community. Es gibt auch eine aktive Rasa-Community auf Rasa-Forum, die bereit ist, Ihre Fragen zu beantworten und Best Practices zu teilen.
+
+Letztlich können Sie auch Beispiele für Rasa-Projekte auf GitHub finden, die Ihnen helfen könnten, Ihre eigenen Assistenzsysteme zu entwickeln. Denken Sie daran, SEO-optimierte Inhalte zu erstellen, um Ihre Artikel für Suchmaschinen zugänglich zu machen und die Reichweite Ihres Artikels zu erhöhen.
+
+Happy Coding!
+
+<div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
+  ![Zusätzliche Ressourcen](/static/images/Zusätzliche_Ressourcen_1727700337_16-9.png)
+</div>
+
+### Links zu verwandten Artikeln, Dokumentationen oder Foren
+
+Es gibt viele Ressourcen, die Ihnen dabei helfen können, Ihr Verständnis von Rasa zu vertiefen und Ihre Fähigkeiten bei der Erstellung von Assistenten weiter zu entwickeln. Wir empfehlen Ihnen, die offizielle Rasa-Dokumentation zu lesen, die detaillierte Anleitungen und umfassende Informationen über alle Aspekte der Plattform enthält.
+
+Sie können auch die Rasa-Community in verschiedenen Foren und Diskussionsgruppen besuchen. Dort können Sie Fragen stellen, Erfahrungen austauschen und von den Erfahrungen anderer Rasa-Nutzer lernen.
+
+Darüber hinaus gibt es viele Online-Tutorials und Blogartikel, die verschiedene Aspekte von Rasa behandeln, einschließlich fortgeschrittener Themen und spezieller Anwendungsfälle. Vergessen Sie nicht, auch die Rasa GitHub-Seite zu besuchen, auf der Sie den Quellcode der Plattform einsehen und Beiträge zur Entwicklung leisten können.
