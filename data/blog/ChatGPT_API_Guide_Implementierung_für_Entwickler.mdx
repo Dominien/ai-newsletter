@@ -200,13 +200,9 @@ Um sicherzustellen, dass Ihre Anwendung sicher und effizient auf die ChatGPT API
 
 Ein unsachgemäßer Umgang mit diesem Schlüssel kann dazu führen, dass Dritte auf Ihre API-Ressourcen zugreifen und möglicherweise Kosten verursachen oder Ihre Anwendung gefährden. Daher sollten Sie folgende Schritte befolgen, um Ihren API-Schlüssel sicher in Ihrem Projekt zu speichern:
 
-1.
+1. **Erstellung einer Umgebungsvariablen**: Erstellen Sie eine Datei mit dem Namen `.env` im Stammverzeichnis Ihres Projekts. Diese Datei ist der ideale Ort, um sensible Informationen wie API-Schlüssel zu speichern, da sie nicht mit dem Quellcode Ihres Projekts geteilt wird.
 
-**Erstellung einer Umgebungsvariablen**: Erstellen Sie eine Datei mit dem Namen `.env` im Stammverzeichnis Ihres Projekts. Diese Datei ist der ideale Ort, um sensible Informationen wie API-Schlüssel zu speichern, da sie nicht mit dem Quellcode Ihres Projekts geteilt wird.
-
-2.
-
-**Speichern des API-Schlüssels**: Fügen Sie in der `.env`-Datei den folgenden Eintrag hinzu:
+2. **Speichern des API-Schlüssels**: Fügen Sie in der `.env`-Datei den folgenden Eintrag hinzu:
    OPENAI_API_KEY=Ihr_API_Schlüssel
    Ersetzen Sie `Ihr_API_Schlüssel` durch den tatsächlichen Schlüssel, den Sie von Ihrer OpenAI-Konto-Seite erhalten haben.
 
@@ -307,7 +303,7 @@ Sobald die Bibliothek installiert ist, können Sie den REST API-Code durch das I
 
 Der folgende Code zeigt, wie Sie die Bibliothek in Ihrer API-Route verwenden können:
 
-js
+```jsx
   const OpenAI = require("openai");
 
   export default function handler(req, res) {
@@ -327,7 +323,7 @@ js
           .catch(e => {
               res.status(500).json({ content: "Der Artikel konnte nicht generiert werden. Fehler: " + JSON.stringify(e) });
           });
-  }
+  } ```
 
 Durch diese Umstellung auf die Node.js-Bibliothek vereinfachen Sie den gesamten Prozess der API-Integration.
 
