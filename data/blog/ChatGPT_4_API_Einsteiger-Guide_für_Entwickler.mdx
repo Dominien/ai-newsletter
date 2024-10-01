@@ -362,7 +362,7 @@ Um die ChatGPT API in Ihrem Projekt effektiv zu nutzen, ist es wichtig, einige g
 Zunächst müssen Sie sicherstellen, dass Sie die OpenAI Python-Bibliothek installiert haben. Dies können Sie mit dem Befehl 'pip install openai' in Ihrer Kommandozeile tun.
 
 Sobald die Bibliothek installiert ist, können Sie mit dem folgenden Beispielcode beginnen:
-
+```python
 import openai
 
 # Setzen Sie Ihren API-Schlüssel hier ein
@@ -379,6 +379,7 @@ response = openai.ChatCompletion.create(
 
 # Ausgabe der Antwort
 print(response['choices'][0]['message']['content'])
+```
 
 In diesem Beispiel setzen wir zuerst den API-Schlüssel, der für die Authentifizierung benötigt wird. Anschließend formulieren wir eine Anfrage an die ChatGPT API, wobei wir die Rolle des Systems und die Benutzeranfrage definieren.
 
@@ -401,12 +402,10 @@ Dies ist besonders nützlich, wenn Sie kreative Anwendungen entwickeln, bei dene
 
 Zusätzlich zu diesen grundlegenden Parametern können Sie auch die "messages"-Parameter verwenden, um verschiedene Rollen in der Konversation zu definieren. Hierbei gibt es drei Hauptrollen: 
 
-1.
+1. **Systemrolle**: Diese Rolle wird verwendet, um den Rahmen der Konversation festzulegen. Beispielsweise könnte eine Systemnachricht den Assistenten anweisen, sich als Tutor zu verhalten.
 
-**Systemrolle**: Diese Rolle wird verwendet, um den Rahmen der Konversation festzulegen. Beispielsweise könnte eine Systemnachricht den Assistenten anweisen, sich als Tutor zu verhalten.
-2.
+2. **Benutzerrolle**: Diese Rolle repräsentiert Anfragen oder Kommentare der Benutzer und ist entscheidend, um den Kontext der Frage zu vermitteln.
 
-**Benutzerrolle**: Diese Rolle repräsentiert Anfragen oder Kommentare der Benutzer und ist entscheidend, um den Kontext der Frage zu vermitteln.
 3. **Assistentenrolle**: Die Antworten des Modells übernehmen automatisch die Rolle des Assistenten und enthalten die vom Modell generierte Antwort auf die Benutzeranfrage.
 
 Ein detailliertes Codebeispiel zur Verwendung der ChatGPT API könnte wie folgt aussehen:
@@ -503,15 +502,15 @@ Um Zugang zur API zu erhalten, müssen Sie sich zunächst bei OpenAI registriere
 
 Dieser Schlüssel ermöglicht es Ihnen, Anfragen an die API zu senden und Antworten zu erhalten. Die Hauptanforderungen für die Nutzung der API sind ein gültiges OpenAI-Konto, ein API-Schlüssel und die Einhaltung der Nutzungsrichtlinien von OpenAI.
 
-Technisch gesehen sollten Sie mit den Grundlagen der API-Integration vertraut sein und wissen, wie man HTTP-Anfragen in der von Ihnen gewählten Programmiersprache sendet. Die Integration der ChatGPT API in Ihr Projekt erfordert einige Schritte: 1.
+Technisch gesehen sollten Sie mit den Grundlagen der API-Integration vertraut sein und wissen, wie man HTTP-Anfragen in der von Ihnen gewählten Programmiersprache sendet. Die Integration der ChatGPT API in Ihr Projekt erfordert einige Schritte: 
 
-Wählen Sie die Programmiersprache sowie die Bibliotheken oder Frameworks, die Sie verwenden möchten. 2.
+1. Wählen Sie die Programmiersprache sowie die Bibliotheken oder Frameworks, die Sie verwenden möchten. 
 
-Setzen Sie Ihren API-Schlüssel zur Authentifizierung für jede Anfrage an die API. 3.
+2. Setzen Sie Ihren API-Schlüssel zur Authentifizierung für jede Anfrage an die API. 
 
-Formulieren Sie die Anfragen an die API, indem Sie die entsprechenden Endpunkte ansprechen und die gewünschten Parameter übergeben. 4.
+3. Formulieren Sie die Anfragen an die API, indem Sie die entsprechenden Endpunkte ansprechen und die gewünschten Parameter übergeben. 
 
-Verarbeiten Sie die API-Antworten, um die erhaltenen Daten in Ihrer Anwendung zu nutzen.
+4. Verarbeiten Sie die API-Antworten, um die erhaltenen Daten in Ihrer Anwendung zu nutzen.
 
 <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:px-2">
   ![FAQ](/static/images/FAQ_1727811301_16-9.png)
