@@ -272,8 +272,6 @@ Der Header sollte wie folgt aussehen: 'Authorization: Bearer YOUR_API_KEY'. Dies
 
 Im Anschluss daran müssen Sie den Anfrageinhalt definieren, der in der Regel aus einem JSON-Objekt besteht. In diesem Objekt geben Sie die Rolle der beteiligten Nachrichten an, beispielsweise 'user' für Benutzereingaben und 'assistant' für die Antworten des Modells.
 
-Auch Parameter wie 'max_tokens', die die Länge der Antwort begrenzen, und 'temperature', die die Kreativität der Antworten steuert, sind hier von Bedeutung. Hier ein einfaches Beispiel für eine Anfrage: { 'model': 'gpt-4', 'messages': [ { 'role': 'user', 'content': 'Was sind die Vorteile der Nutzung der ChatGPT API?' } ], 'max_tokens': 100 } Dieses Beispiel zeigt, wie Sie eine Frage an das Modell stellen können, und gibt Ihnen eine präzise Antwort zurück.
-
 Neben der korrekten Strukturierung Ihrer Anfragen ist es auch wichtig, auf die Bearbeitung der API-Antworten vorbereitet zu sein. Die Antworten werden ebenfalls im JSON-Format gesendet und müssen entsprechend verarbeitet werden, um die relevanten Informationen in Ihrer Anwendung nutzen zu können.
 
 Eine robuste Fehlerbehandlung ist ebenfalls unerlässlich, um sicherzustellen, dass Ihre Anwendung auch bei unerwarteten Problemen stabil bleibt. Indem Sie die API-Anfragen sorgfältig formulieren und die Antworten effizient verarbeiten, können Sie die Möglichkeiten der ChatGPT API optimal ausschöpfen und Ihre Anwendungen weiter verbessern.
@@ -331,8 +329,6 @@ Die einfache Syntax und die umfangreiche Bibliotheksunterstützung machen es zu 
 Dies kann durch die offizielle Python-Website erfolgen, die eine einfache Installationsanleitung bietet. Anschließend sollten Sie die OpenAI-Python-Bibliothek installieren, um die Integration zu erleichtern.
 
 Dies erreichen Sie, indem Sie den Befehl 'pip install openai' in Ihrem Terminal ausführen. Nach der Installation erstellen Sie eine neue Python-Datei, beispielsweise 'chatgpt_api_test.py', und fügen den erforderlichen Code hinzu, um die API zu verwenden.
-
-Ein einfaches Skript könnte wie folgt aussehen: import openai; openai.api_key = 'YOUR_API_KEY'; response = openai.ChatCompletion.create(model='gpt-4', messages=[{'role': 'user', 'content': 'Wie geht es dir?'}]); print(response.choices[0].message['content']). In diesem Beispiel wird die API aufgerufen, um eine einfache Konversation zu führen.
 
 Dabei wird das Modell 'gpt-4' verwendet, um eine Antwort auf die Benutzeranfrage zu generieren. Es ist wichtig, die generierten Antworten sorgfältig zu verarbeiten und etwaige Fehler zu behandeln, um die Zuverlässigkeit der Anwendung zu gewährleisten.
 
