@@ -25,7 +25,7 @@ const siteMetadata = {
   analytics: {
     // Example for Google Analytics or Plausible:
     googleAnalytics: {
-      googleAnalyticsId: 'G-XXXXXXX', // Replace with your Google Analytics ID if applicable
+      googleAnalyticsId: 'G-Y55M0TCHDG', // Replace with your Google Analytics ID if applicable
     },
   },
   newsletter: {
